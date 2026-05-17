@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String?       @unique
+  whatsapp     String?       @unique
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  documents    Document[]
+  transactions Transaction[]
+}
+
+model Document {
+  id         String   @id @default(cuid())
+  templateId String
+  formData   Json     // Stores the dynamic form data as JSON
+  status     String   @default("draft") // draft | completed
+  pdfUrl     String?
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Transaction {
+  id         String   @id @default(cuid())
+  documentId String
+  amount     Int
+  status     String   @default("pending") // pending | paid | expired
+  midtransId String?  @unique
+  qrisUrl    String?
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 Generator Surat Otomatis
 
-## Getting Started
+Aplikasi web modern untuk membuat dan meng-generate berbagai surat resmi (seperti Surat Kuasa, Surat Lamaran Kerja, Surat Izin Sakit, dll) secara otomatis. Dibangun menggunakan **Next.js 14+**, **Tailwind CSS**, dan **@react-pdf/renderer**.
 
-First, run the development server:
+## ✨ Fitur Utama
+
+- **Live Preview Split-Screen**: Isi form di sebelah kiri dan lihat hasil surat di kertas A4 di sebelah kanan secara real-time.
+- **Tanda Tangan Digital**: Fitur canvas interaktif untuk menggambar tanda tangan digital langsung di browser.
+- **20+ Template Tersedia**: Mulai dari surat pekerjaan, jual beli, pemerintahan, hingga keperluan sekolah.
+- **Auto-Save Draft**: Data form otomatis tersimpan di LocalStorage, aman dari *accidental refresh*.
+- **Cetak Langsung ke PDF**: Render file PDF berkualitas tinggi langsung di server (API Route).
+
+## 🛠️ Teknologi yang Digunakan
+
+- **Framework**: [Next.js (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **PDF Generator**: [@react-pdf/renderer](https://react-pdf.org/)
+- **Form & Validation**: `react-hook-form` + `zod`
+- **Database (Opsional/Tahap Pengembangan)**: [Prisma](https://www.prisma.io/) + PostgreSQL
+
+---
+
+## 🚀 Cara Menjalankan (Lokal)
+
+Untuk sekadar mencoba fitur utama aplikasi ini (form, preview, dan cetak PDF), Anda **tidak perlu mengonfigurasi database**. Anda bisa langsung menjalankannya dengan 2 langkah sederhana.
+
+### 1. Install Dependencies
+Pastikan Anda sudah menginstal Node.js (versi 18+ disarankan). Buka terminal di dalam folder project ini dan jalankan:
+
+```bash
+npm install
+```
+
+### 2. Jalankan Development Server
+Mulai server Next.js di mode development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat dan menggunakan aplikasinya. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗄️ Setup Database (Opsional - Jika ingin mengembangkan fitur backend)
 
-## Learn More
+Aplikasi ini sudah disiapkan dengan Prisma untuk fitur tingkat lanjut (seperti autentikasi, menyimpan riwayat dokumen, dan integrasi payment gateway Midtrans). Jika Anda ingin menggunakan/mengembangkan fitur tersebut:
 
-To learn more about Next.js, take a look at the following resources:
+1. Copy file `.env.example` dan ubah namanya menjadi `.env`.
+2. Buka `.env` dan atur `DATABASE_URL` ke server PostgreSQL Anda.
+3. Jalankan migrasi Prisma:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 Lisensi
+*(Silakan tambahkan jenis lisensi open-source pilihan Anda di sini, misalnya MIT License)*
