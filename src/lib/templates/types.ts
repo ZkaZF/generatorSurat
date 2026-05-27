@@ -75,12 +75,12 @@ export interface TemplateConfig {
 
 /** Derive price tier from template config */
 export function getPriceTier(template: TemplateConfig): PriceTier {
-  return template.price === 0 ? 'free' : 'paid';
+  return 'free';
 }
 
 /** Check if a template is free */
 export function isFreeTemplate(template: TemplateConfig): boolean {
-  return template.price === 0;
+  return true;
 }
 
 // ─── Form Data ───────────────────────────────────────────────────────────────

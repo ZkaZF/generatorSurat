@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: `Template "${templateId}" not found.` }, { status: 404 });
     }
 
-    const withWatermark = isFreeTemplate(template);
+    const withWatermark = false; // Disable watermark since all templates are free
 
     const pdfFactory = PDF_COMPONENTS[template.pdfComponent];
     if (!pdfFactory) {
