@@ -1,0 +1,92 @@
+import type { TemplateConfig } from '../types';
+
+export const suratPindahSekolahTemplate: TemplateConfig = {
+  id: 'surat-pindah-sekolah',
+  name: 'Surat Permohonan Pindah Sekolah',
+  description: 'Surat resmi dari orang tua murid untuk mengajukan perpindahan (mutasi) sekolah anaknya ke sekolah baru.',
+  category: 'sekolah',
+  icon: 'transfer_within_a_station',
+  price: 0,
+  previewComponent: 'SuratPindahSekolahPreview',
+  pdfComponent: 'SuratPindahSekolahPDF',
+  steps: [
+    {
+      id: 'data-surat',
+      title: 'Data Permohonan Pindah Sekolah',
+      description: 'Lengkapi informasi permohonan mutasi sekolah.',
+      fields: [
+        {
+          name: 'namaOrangTua',
+          type: 'text',
+          label: 'Nama Orang Tua / Wali',
+          placeholder: 'Cth: Ahmad Fauzi',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'namaAnak',
+          type: 'text',
+          label: 'Nama Siswa',
+          placeholder: 'Cth: Fahri Ramadhan',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'kelasAnak',
+          type: 'text',
+          label: 'Kelas Saat Ini',
+          placeholder: 'Cth: VIII B',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'namaSekolahAsal',
+          type: 'text',
+          label: 'Nama Sekolah Asal',
+          placeholder: 'Cth: SMP Negeri 5 Surabaya',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'namaSekolahTujuan',
+          type: 'text',
+          label: 'Nama Sekolah Tujuan',
+          placeholder: 'Cth: SMP Negeri 3 Malang',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'alasanPindah',
+          type: 'textarea',
+          label: 'Alasan Pindah Sekolah',
+          placeholder: 'Cth: Dikarenakan orang tua dipindahtugaskan ke Kota Malang, kami mengajukan permohonan mutasi sekolah untuk anak kami.',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'kotaSurat',
+          type: 'text',
+          label: 'Kota Pembuatan Surat',
+          placeholder: 'Cth: Surabaya',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalSurat',
+          type: 'date',
+          label: 'Tanggal Surat',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tandaTangan',
+          type: 'signature',
+          label: 'Tanda Tangan Orang Tua / Wali',
+          required: false,
+          colSpan: 2,
+        },
+      ],
+    },
+  ],
+};
+

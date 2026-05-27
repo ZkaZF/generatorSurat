@@ -6,29 +6,53 @@ interface HeaderProps {
 
 export default function Header({ variant = 'home' }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 flex justify-between items-center h-14 px-4 w-full bg-white/90 backdrop-blur-md border-b border-outline-variant/40 shadow-header">
+    <header style={{
+      position: 'sticky', top: 0, zIndex: 50,
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+      height: '56px', padding: '0 16px', width: '100%',
+      background: 'rgba(253,248,240,0.92)', backdropFilter: 'blur(16px)',
+      borderBottom: '1px solid #D4C5A0',
+      boxShadow: '0 1px 4px rgba(27,46,74,0.05)',
+    }}>
       {/* Left icon */}
       <Link
         href="/"
-        className="flex items-center justify-center w-10 h-10 rounded-full text-outline hover:bg-gray-50 transition-colors active:scale-95 duration-150"
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          width: '40px', height: '40px', borderRadius: '50%',
+          color: '#5A6A7A', textDecoration: 'none', transition: 'background .15s',
+        }}
         aria-label={variant === 'editor' ? 'Kembali ke beranda' : 'Beranda'}
+        onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#F5EFE3')}
+        onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.background = 'transparent')}
       >
         {variant === 'editor' ? (
           <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>close</span>
         ) : (
-          <span className="material-symbols-outlined text-primary" style={{ fontSize: '22px' }}>description</span>
+          <span className="material-symbols-outlined icon-fill" style={{ fontSize: '22px', color: '#C8A45C' }}>description</span>
         )}
       </Link>
 
       {/* Center Logo */}
-      <Link href="/" className="text-lg font-bold tracking-tight text-primary select-none">
-        SuratOtomatis
+      <Link href="/" style={{
+        fontFamily: 'var(--font-serif), Georgia, serif',
+        fontSize: '18px', fontWeight: 400, color: '#1B2E4A',
+        textDecoration: 'none', letterSpacing: '-0.2px',
+      }}>
+        Surat<span style={{ color: '#C8A45C' }}>Otomatis</span>
       </Link>
 
       {/* Right icon */}
       <button
-        className="flex items-center justify-center w-10 h-10 rounded-full text-outline hover:bg-gray-50 transition-colors active:scale-95 duration-150"
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          width: '40px', height: '40px', borderRadius: '50%',
+          border: 'none', background: 'transparent', cursor: 'pointer',
+          color: '#5A6A7A', transition: 'background .15s',
+        }}
         aria-label="Profil akun"
+        onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F5EFE3')}
+        onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'transparent')}
       >
         <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>account_circle</span>
       </button>

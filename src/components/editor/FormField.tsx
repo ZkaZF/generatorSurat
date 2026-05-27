@@ -10,7 +10,9 @@ interface FormFieldRendererProps {
 }
 
 const INPUT_CLASS =
-  'w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-on-surface bg-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all placeholder:text-gray-400 disabled:opacity-50';
+  'w-full border rounded-lg px-3 py-2.5 text-sm bg-white transition-all placeholder:text-gray-400 disabled:opacity-50 focus:outline-none'
+  + ' border-[#D4C5A0] text-[#1B2E4A]'
+  + ' focus:border-[#C8A45C] focus:ring-2 focus:ring-[#C8A45C]/20';
 
 export default function FormFieldRenderer({ field, value, onChange }: FormFieldRendererProps) {
   const { name, type, label, placeholder, required, options } = field;

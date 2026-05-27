@@ -20,11 +20,14 @@ export default function BottomNav() {
             key={item.href}
             href={item.href}
             className="flex flex-col items-center justify-center px-4 py-1 transition-transform active:scale-90 duration-200"
-            style={{ color: active ? '#004ac6' : '#737686' }}
+            style={{ color: active ? '#1B2E4A' : '#8A9AAA' }}
           >
-            <div className={`px-4 py-1 rounded-full flex flex-col items-center ${active ? 'bg-primary/10' : ''}`}>
+            <div style={{
+              padding: '4px 16px', borderRadius: '999px', display: 'flex', flexDirection: 'column', alignItems: 'center',
+              background: active ? '#F0E4C4' : 'transparent',
+            }}>
               <span className={`material-symbols-outlined mb-0.5 ${active ? 'icon-fill' : ''}`}
-                style={{ fontSize: '22px' }}>
+                style={{ fontSize: '22px', color: active ? '#C8A45C' : '#8A9AAA' }}>
                 {item.icon}
               </span>
             </div>

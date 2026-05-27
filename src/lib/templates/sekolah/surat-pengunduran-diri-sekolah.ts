@@ -1,0 +1,91 @@
+import type { TemplateConfig } from '../types';
+
+export const suratPengunduranDiriSekolahTemplate: TemplateConfig = {
+  id: 'surat-pengunduran-diri-sekolah',
+  name: 'Surat Pengunduran Diri (Sekolah/Kampus)',
+  description: 'Surat resmi berhenti dari institusi pendidikan (sekolah atau kampus) karena alasan tertentu.',
+  category: 'sekolah',
+  icon: 'logout',
+  price: 0,
+  previewComponent: 'SuratPengunduranDiriSekolahPreview',
+  pdfComponent: 'SuratPengunduranDiriSekolahPDF',
+  steps: [
+    {
+      id: 'data-surat',
+      title: 'Data Pengunduran Diri',
+      description: 'Lengkapi informasi surat pengunduran diri dari institusi pendidikan.',
+      fields: [
+        {
+          name: 'namaPemohon',
+          type: 'text',
+          label: 'Nama Lengkap',
+          placeholder: 'Cth: Dian Purnama',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'nimNis',
+          type: 'text',
+          label: 'NIM / NIS',
+          placeholder: 'Cth: 2020003456',
+          required: false,
+          colSpan: 1,
+        },
+        {
+          name: 'kelasJurusan',
+          type: 'text',
+          label: 'Kelas / Program Studi',
+          placeholder: 'Cth: XI TKJ 1 / S1 Manajemen Semester 3',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'namaInstitusi',
+          type: 'text',
+          label: 'Nama Sekolah / Kampus',
+          placeholder: 'Cth: SMK Negeri 1 Semarang / Universitas Diponegoro',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'tanggalEfektif',
+          type: 'date',
+          label: 'Tanggal Efektif Pengunduran Diri',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'alasanMundur',
+          type: 'textarea',
+          label: 'Alasan Pengunduran Diri',
+          placeholder: 'Cth: Dikarenakan kondisi ekonomi keluarga yang tidak memungkinkan untuk melanjutkan pendidikan, saya terpaksa mengundurkan diri.',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'kotaSurat',
+          type: 'text',
+          label: 'Kota Pembuatan Surat',
+          placeholder: 'Cth: Semarang',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalSurat',
+          type: 'date',
+          label: 'Tanggal Surat',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tandaTangan',
+          type: 'signature',
+          label: 'Tanda Tangan',
+          required: false,
+          colSpan: 2,
+        },
+      ],
+    },
+  ],
+};
+

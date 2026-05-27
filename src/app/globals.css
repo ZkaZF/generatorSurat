@@ -1,57 +1,59 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   Tailwind v4 — @theme block (generates ALL utility classes)
-   Semua token M3 didefinisikan di sini, bukan di tailwind.config.ts
+   Tailwind v4 — @theme block
+   Warm Premium Palette (Stitch Reference)
    ═══════════════════════════════════════════════════════════════════════════ */
 @theme {
   /* ── Font Family ─────────────────────────────────────────────────────── */
-  --font-inter: 'Inter', sans-serif;
-  --font-serif: 'Times New Roman', Times, serif;
+  --font-inter:  'Inter', sans-serif;
+  --font-serif:  'DM Serif Display', Georgia, serif;
 
-  /* ── Material Design 3 Colors ────────────────────────────────────────── */
-  --color-primary:                   #004ac6;
-  --color-primary-container:         #2563eb;
-  --color-primary-fixed:             #dbe1ff;
-  --color-primary-fixed-dim:         #b4c5ff;
-  --color-on-primary:                #ffffff;
-  --color-on-primary-container:      #eeefff;
-  --color-inverse-primary:           #b4c5ff;
+  /* ── Primary — Deep Navy ─────────────────────────────────────────────── */
+  --color-primary:                   #1B2E4A;
+  --color-primary-container:         #2A4060;
+  --color-primary-fixed:             #E8EFF8;
+  --color-primary-fixed-dim:         #C8D8EC;
+  --color-on-primary:                #FFFFFF;
+  --color-on-primary-container:      #EEF3FA;
+  --color-inverse-primary:           #8AADCE;
 
-  --color-secondary:                 #505f76;
-  --color-secondary-container:       #d0e1fb;
-  --color-on-secondary:              #ffffff;
-  --color-on-secondary-container:    #0d2745;
+  /* ── Accent — Warm Gold ──────────────────────────────────────────────── */
+  --color-secondary:                 #C8A45C;
+  --color-secondary-container:       #F0E4C4;
+  --color-on-secondary:              #1B2E4A;
+  --color-on-secondary-container:    #5C3D00;
 
-  --color-tertiary:                  #005a82;
-  --color-tertiary-container:        #0074a6;
-  --color-on-tertiary:               #ffffff;
-  --color-on-tertiary-container:     #e4f2ff;
+  --color-tertiary:                  #A88B3D;
+  --color-tertiary-container:        #E8D5A8;
+  --color-on-tertiary:               #FFFFFF;
+  --color-on-tertiary-container:     #3D2800;
 
-  --color-surface:                   #f8f9ff;
-  --color-surface-dim:               #ccdbf4;
-  --color-surface-bright:            #f8f9ff;
-  --color-surface-variant:           #d5e3fd;
-  --color-surface-container-lowest:  #ffffff;
-  --color-surface-container-low:     #eff4ff;
-  --color-surface-container:         #e6eeff;
-  --color-surface-container-high:    #dde9ff;
-  --color-surface-container-highest: #d5e3fd;
-  --color-on-surface:                #0d1c2f;
-  --color-on-surface-variant:        #434655;
-  --color-inverse-surface:           #233144;
-  --color-inverse-on-surface:        #ebf1ff;
+  /* ── Surface — Warm Cream / Ivory ────────────────────────────────────── */
+  --color-surface:                   #FDF8F0;
+  --color-surface-dim:               #E8DCC8;
+  --color-surface-bright:            #FEFCF8;
+  --color-surface-variant:           #F5EFE3;
+  --color-surface-container-lowest:  #FFFFFF;
+  --color-surface-container-low:     #FAF5EB;
+  --color-surface-container:         #F5EFE3;
+  --color-surface-container-high:    #EDE5D5;
+  --color-surface-container-highest: #E5D8C5;
+  --color-on-surface:                #1B2E4A;
+  --color-on-surface-variant:        #5A6A7A;
+  --color-inverse-surface:           #2C3E50;
+  --color-inverse-on-surface:        #F5EFE3;
 
-  --color-background:                #f8f9ff;
-  --color-on-background:             #0d1c2f;
+  --color-background:                #FDF8F0;
+  --color-on-background:             #1B2E4A;
 
-  --color-outline:                   #737686;
-  --color-outline-variant:           #c3c6d7;
+  --color-outline:                   #8A9AAA;
+  --color-outline-variant:           #D4C5A0;
 
-  --color-error:                     #ba1a1a;
-  --color-error-container:           #ffdad6;
-  --color-on-error:                  #ffffff;
-  --color-on-error-container:        #93000a;
+  --color-error:                     #C62828;
+  --color-error-container:           #FFDAD6;
+  --color-on-error:                  #FFFFFF;
+  --color-on-error-container:        #93000A;
 
   /* ── Spacing ─────────────────────────────────────────────────────────── */
   --spacing-xs:             4px;
@@ -73,12 +75,13 @@
   --radius-full: 9999px;
 
   /* ── Box Shadows ─────────────────────────────────────────────────────── */
-  --shadow-card:       0 2px 10px rgba(0,0,0,0.04);
-  --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-paper:      0 4px 24px rgba(0,0,0,0.06);
-  --shadow-header:     0 1px 2px rgba(0,0,0,0.05);
-  --shadow-bottom-bar: 0 -4px 24px rgba(0,0,0,0.04);
-  --shadow-bottom-nav: 0 -2px 15px rgba(0,0,0,0.05);
+  --shadow-card:       0 2px 10px rgba(27,46,74,0.06);
+  --shadow-card-hover: 0 8px 32px rgba(27,46,74,0.12);
+  --shadow-paper:      0 8px 40px rgba(27,46,74,0.10);
+  --shadow-header:     0 1px 2px rgba(27,46,74,0.06);
+  --shadow-bottom-bar: 0 -4px 24px rgba(27,46,74,0.04);
+  --shadow-bottom-nav: 0 -2px 15px rgba(27,46,74,0.05);
+  --shadow-gold:       0 4px 20px rgba(200,164,92,0.3);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -95,8 +98,8 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8f9ff;
-    color: #0d1c2f;
+    background-color: #FDF8F0;
+    color: #1B2E4A;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100dvh;
@@ -137,12 +140,13 @@
 .a4-paper {
   aspect-ratio: 1 / 1.414;
   background: white;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 40px rgba(27,46,74,0.15);
   position: relative;
   overflow: hidden;
 }
 
-.serif-text { font-family: 'Times New Roman', Times, serif; }
+.serif-text { font-family: 'DM Serif Display', Georgia, serif; }
+.font-serif  { font-family: 'DM Serif Display', Georgia, serif; }
 
 .signature-canvas {
   touch-action: none;
@@ -154,12 +158,41 @@
   padding-bottom: env(safe-area-inset-bottom, 16px);
 }
 
+/* ── Gold border card ─────────────────────────────────────────────────── */
+.cream-card {
+  background: #FEFCF8;
+  border: 1px solid #D4C5A0;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(27,46,74,0.06);
+}
+
+.cream-card:hover {
+  border-color: #C8A45C;
+  box-shadow: 0 6px 24px rgba(27,46,74,0.10);
+}
+
+/* ── Decorative geometric lines (stitch pattern overlay) ─────────────── */
+.geo-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg,  rgba(200,164,92,0.07) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(200,164,92,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    Animations
    ═══════════════════════════════════════════════════════════════════════════ */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatDoc {
+  0%, 100% { transform: rotate(-4deg) translateY(0px); }
+  50%       { transform: rotate(-4deg) translateY(-10px); }
 }
 
 @keyframes spin {
@@ -172,16 +205,29 @@
   100% { background-position:  200% 0; }
 }
 
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(200,164,92,0.25); }
+  50%       { box-shadow: 0 4px 32px rgba(200,164,92,0.50); }
+}
+
 .animate-fade-in-up {
-  animation: fadeInUp 0.4s ease-out both;
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animate-float-doc {
+  animation: floatDoc 4s ease-in-out infinite;
 }
 
 .animate-spin {
   animation: spin 0.8s linear infinite;
 }
 
+.animate-gold-pulse {
+  animation: goldPulse 2.5s ease-in-out infinite;
+}
+
 .shimmer {
-  background: linear-gradient(90deg, #f0f4ff 25%, #e0eaff 50%, #f0f4ff 75%);
+  background: linear-gradient(90deg, #F5EFE3 25%, #EDE5D5 50%, #F5EFE3 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }

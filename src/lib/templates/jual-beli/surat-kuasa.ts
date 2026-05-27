@@ -1,0 +1,187 @@
+import type { TemplateConfig } from '../types';
+
+// ─── Surat Kuasa BPKB ─────────────────────────────────────────────────────────
+// PAID | Kategori: Jual Beli | price: 10000 | No watermark (after payment)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const suratKuasaTemplate: TemplateConfig = {
+  id: 'surat-kuasa',
+  name: 'Surat Kuasa BPKB',
+  description: 'Surat kuasa resmi untuk memberikan wewenang kepada pihak lain dalam mengurus BPKB atau dokumen kendaraan.',
+  category: 'jual-beli',
+  icon: 'description',
+  price: 10000, // Rp 10.000 — BERBAYAR
+  previewComponent: 'SuratKuasaPreview',
+  pdfComponent: 'SuratKuasaPDF',
+  steps: [
+    {
+      id: 'pemberi-kuasa',
+      title: 'Data Pemberi Kuasa',
+      description: 'Isi data lengkap pihak yang memberikan kuasa.',
+      fields: [
+        {
+          name: 'namaPemberi',
+          type: 'text',
+          label: 'Nama Lengkap Pemberi Kuasa',
+          placeholder: 'Masukkan nama sesuai KTP',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'nikPemberi',
+          type: 'number',
+          label: 'NIK Pemberi Kuasa',
+          placeholder: '16 digit NIK',
+          required: true,
+          colSpan: 2,
+          validation: { minLength: 16, maxLength: 16, message: 'NIK harus 16 digit' },
+        },
+        {
+          name: 'tempatLahirPemberi',
+          type: 'text',
+          label: 'Tempat Lahir',
+          placeholder: 'Cth: Jakarta',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalLahirPemberi',
+          type: 'date',
+          label: 'Tanggal Lahir',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'alamatPemberi',
+          type: 'textarea',
+          label: 'Alamat Lengkap',
+          placeholder: 'Jalan, RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'pekerjaanPemberi',
+          type: 'text',
+          label: 'Pekerjaan',
+          placeholder: 'Cth: Wiraswasta',
+          required: true,
+          colSpan: 2,
+        },
+      ],
+    },
+    {
+      id: 'penerima-kuasa',
+      title: 'Data Penerima Kuasa',
+      description: 'Isi data lengkap pihak yang menerima kuasa.',
+      fields: [
+        {
+          name: 'namaPenerima',
+          type: 'text',
+          label: 'Nama Lengkap Penerima Kuasa',
+          placeholder: 'Masukkan nama sesuai KTP',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'nikPenerima',
+          type: 'number',
+          label: 'NIK Penerima Kuasa',
+          placeholder: '16 digit NIK',
+          required: true,
+          colSpan: 2,
+          validation: { minLength: 16, maxLength: 16, message: 'NIK harus 16 digit' },
+        },
+        {
+          name: 'tempatLahirPenerima',
+          type: 'text',
+          label: 'Tempat Lahir',
+          placeholder: 'Cth: Bandung',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalLahirPenerima',
+          type: 'date',
+          label: 'Tanggal Lahir',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'alamatPenerima',
+          type: 'textarea',
+          label: 'Alamat Lengkap',
+          placeholder: 'Jalan, RT/RW, Kelurahan, Kecamatan, Kota/Kabupaten',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'pekerjaanPenerima',
+          type: 'text',
+          label: 'Pekerjaan',
+          placeholder: 'Cth: Karyawan Swasta',
+          required: true,
+          colSpan: 2,
+        },
+      ],
+    },
+    {
+      id: 'detail-kuasa',
+      title: 'Detail & Tanda Tangan',
+      description: 'Isi detail kuasa dan bubuhkan tanda tangan kedua pihak.',
+      fields: [
+        {
+          name: 'perihalKuasa',
+          type: 'select',
+          label: 'Perihal Kuasa',
+          required: true,
+          colSpan: 2,
+          options: [
+            { value: 'pengambilan-bpkb', label: 'Pengambilan BPKB' },
+            { value: 'pengurusan-bpkb', label: 'Pengurusan BPKB' },
+            { value: 'balik-nama-bpkb', label: 'Balik Nama BPKB' },
+            { value: 'pengambilan-dokumen', label: 'Pengambilan Dokumen Lainnya' },
+            { value: 'lainnya', label: 'Lainnya' },
+          ],
+        },
+        {
+          name: 'isiKuasa',
+          type: 'textarea',
+          label: 'Uraian Pemberian Kuasa',
+          placeholder: 'Cth: Mengurus dan mengambil BPKB atas nama saya untuk kendaraan Honda Beat tahun 2020 nomor polisi B 1234 XYZ.',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'kotaSurat',
+          type: 'text',
+          label: 'Kota Pembuatan Surat',
+          placeholder: 'Cth: Surabaya',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalSurat',
+          type: 'date',
+          label: 'Tanggal Surat',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tandaTanganPemberi',
+          type: 'signature',
+          label: 'Tanda Tangan Pemberi Kuasa',
+          required: false,
+          colSpan: 1,
+        },
+        {
+          name: 'tandaTanganPenerima',
+          type: 'signature',
+          label: 'Tanda Tangan Penerima Kuasa',
+          required: false,
+          colSpan: 1,
+        },
+      ],
+    },
+  ],
+};
+

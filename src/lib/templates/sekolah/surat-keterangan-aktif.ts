@@ -1,0 +1,92 @@
+import type { TemplateConfig } from '../types';
+
+export const suratKeteranganAktifTemplate: TemplateConfig = {
+  id: 'surat-keterangan-aktif',
+  name: 'Surat Keterangan Aktif Sekolah/Kuliah',
+  description: 'Surat permohonan dari siswa/mahasiswa ke tata usaha untuk menerbitkan bukti masih aktif belajar (untuk BPJS, tunjangan anak, lomba, dll).',
+  category: 'sekolah',
+  icon: 'verified_user',
+  price: 0,
+  previewComponent: 'SuratKeteranganAktifPreview',
+  pdfComponent: 'SuratKeteranganAktifPDF',
+  steps: [
+    {
+      id: 'data-surat',
+      title: 'Data Permohonan',
+      description: 'Lengkapi informasi permohonan keterangan aktif.',
+      fields: [
+        {
+          name: 'namaSiswa',
+          type: 'text',
+          label: 'Nama Lengkap Siswa / Mahasiswa',
+          placeholder: 'Cth: Siti Nur Aisyah',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'nimNis',
+          type: 'text',
+          label: 'NIM / NIS / NISN',
+          placeholder: 'Cth: 2022005678',
+          required: false,
+          colSpan: 1,
+        },
+        {
+          name: 'kelasJurusan',
+          type: 'text',
+          label: 'Kelas / Program Studi',
+          placeholder: 'Cth: XII MIPA 3 / S1 Akuntansi Semester 4',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'namaInstitusi',
+          type: 'text',
+          label: 'Nama Sekolah / Perguruan Tinggi',
+          placeholder: 'Cth: SMK Negeri 2 Bandung / Universitas Padjadjaran',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'keperluan',
+          type: 'text',
+          label: 'Keperluan Surat Keterangan',
+          placeholder: 'Cth: Persyaratan BPJS Kesehatan / Syarat Lomba Tingkat Nasional',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'ditujukanKepada',
+          type: 'text',
+          label: 'Ditujukan Kepada',
+          placeholder: 'Cth: Yth. Kepala Tata Usaha SMK Negeri 2 Bandung',
+          required: true,
+          colSpan: 2,
+        },
+        {
+          name: 'kotaSurat',
+          type: 'text',
+          label: 'Kota Pembuatan Surat',
+          placeholder: 'Cth: Bandung',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tanggalSurat',
+          type: 'date',
+          label: 'Tanggal Surat',
+          required: true,
+          colSpan: 1,
+        },
+        {
+          name: 'tandaTangan',
+          type: 'signature',
+          label: 'Tanda Tangan',
+          required: false,
+          colSpan: 2,
+        },
+      ],
+    },
+  ],
+};
+

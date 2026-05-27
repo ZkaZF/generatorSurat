@@ -50,9 +50,10 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
           <div className="flex gap-1.5 mb-2">
             {template.steps.map((s, idx) => (
               <div key={s.id} className="flex-1">
-                <div className={`h-1 rounded-full transition-all duration-300 ${
-                  idx <= currentStep ? 'bg-primary' : 'bg-gray-200'
-                }`} />
+                <div style={{
+                  height: '3px', borderRadius: '9999px', transition: 'background .3s',
+                  background: idx <= currentStep ? '#1B2E4A' : '#E5D8C5',
+                }} />
               </div>
             ))}
           </div>
@@ -60,9 +61,10 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
           <div className="flex gap-1.5">
             {template.steps.map((s, idx) => (
               <div key={s.id} className="flex-1">
-                <span className={`text-[10px] font-semibold leading-tight transition-colors ${
-                  idx === currentStep ? 'text-primary' : idx < currentStep ? 'text-outline' : 'text-gray-300'
-                }`}>
+                <span style={{
+                  fontSize: '10px', fontWeight: 600, lineHeight: 1.3, transition: 'color .3s',
+                  color: idx === currentStep ? '#1B2E4A' : idx < currentStep ? '#8A9AAA' : '#D4C5A0',
+                }}>
                   {s.title}
                 </span>
               </div>
@@ -104,7 +106,13 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
             <button
               type="button"
               onClick={handlePrev}
-              className="flex-1 h-11 border border-outline-variant text-on-surface-variant rounded-xl text-sm font-semibold hover:bg-surface-container transition-colors active:scale-[0.98]"
+              style={{
+                flex: 1, height: '44px', borderRadius: '12px', fontSize: '14px', fontWeight: 600,
+                border: '1.5px solid #D4C5A0', background: 'transparent', color: '#5A6A7A',
+                cursor: 'pointer', transition: 'background .15s',
+              }}
+              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F5EFE3')}
+              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'transparent')}
             >
               ← Sebelumnya
             </button>
@@ -113,7 +121,14 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 h-11 bg-primary text-white rounded-xl text-sm font-semibold hover:opacity-90 transition-colors active:scale-[0.98]"
+              style={{
+                flex: 1, height: '44px', borderRadius: '12px', fontSize: '14px', fontWeight: 700,
+                border: 'none', background: '#1B2E4A', color: '#fff',
+                cursor: 'pointer', transition: 'opacity .15s',
+                boxShadow: '0 3px 12px rgba(27,46,74,0.25)',
+              }}
+              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.88')}
+              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
             >
               Selanjutnya →
             </button>
