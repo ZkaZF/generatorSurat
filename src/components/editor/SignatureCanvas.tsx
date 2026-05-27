@@ -108,16 +108,16 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
   };
 
   return (
-    <div className="flex flex-col gap-base">
+    <div className="flex flex-col gap-2">
       {/* Label row */}
       <div className="flex justify-between items-center">
-        <label htmlFor={id} className="text-label-md font-label-md text-on-surface">
+        <label htmlFor={id} className="text-xs font-semibold text-[#5f5f5d]">
           {label}
         </label>
         <button
           type="button"
           onClick={handleClear}
-          className="text-label-sm font-label-sm text-secondary hover:text-error transition-colors"
+          className="text-xs font-medium text-[#5f5f5d] hover:text-[#1a1a17] transition-colors"
           aria-label="Hapus tanda tangan"
         >
           Hapus
@@ -125,13 +125,13 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
       </div>
 
       {/* Canvas area */}
-      <div className="relative border border-dashed border-outline-variant bg-white rounded-xl h-48 overflow-hidden select-none">
+      <div className="relative border border-dashed border-[rgba(26,26,23,0.22)] bg-white rounded-[6px] h-72 overflow-hidden select-none">
         <canvas
           ref={canvasRef}
           id={id}
           width={600}
-          height={192}
-          className="absolute inset-0 w-full h-full signature-canvas"
+          height={288}
+          className="absolute inset-0 w-full h-full signature-canvas cursor-crosshair"
           onMouseDown={startDraw}
           onMouseMove={draw}
           onMouseUp={endDraw}
@@ -144,15 +144,15 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
 
         {/* "X" baseline guide — hidden once user draws */}
         {!value && (
-          <div className="absolute bottom-8 left-6 flex items-center gap-2 opacity-30 pointer-events-none">
-            <span className="text-h3 font-h3 text-outline">X</span>
-            <div className="w-48 h-px bg-outline" />
+          <div className="absolute bottom-10 left-6 flex items-center gap-2 pointer-events-none">
+            <span className="text-lg font-medium text-[rgba(26,26,23,0.15)]">X</span>
+            <div className="w-48 h-px bg-[rgba(26,26,23,0.15)]" />
           </div>
         )}
 
         {/* Placeholder text */}
         {!value && (
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-body-sm font-body-sm text-outline-variant pointer-events-none whitespace-nowrap">
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm text-[#5f5f5d] pointer-events-none whitespace-nowrap">
             Goreskan tanda tangan di sini
           </span>
         )}

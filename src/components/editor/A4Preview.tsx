@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useEffect, useState } from 'react';
 import type { ComponentType } from 'react';
 import type { TemplateConfig, FormData } from '@/lib/templates/types';
 import { isFreeTemplate } from '@/lib/templates/types';
@@ -80,6 +81,20 @@ const PREVIEW_COMPONENTS: Record<string, ComponentType<{ formData: FormData }>> 
 export default function A4Preview({ template, formData }: A4PreviewProps) {
   const free = isFreeTemplate(template);
   const PreviewComponent = PREVIEW_COMPONENTS[template.previewComponent];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setScale(entry.contentRect.width / 540);
+      }
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div style={{ width: '100%', maxWidth: '540px', margin: '0 auto' }}>
@@ -92,15 +107,18 @@ export default function A4Preview({ template, formData }: A4PreviewProps) {
       </div>
 
       {/* A4 Paper — padding-bottom trick for reliable aspect ratio */}
-      <div style={{
-        width: '100%',
-        position: 'relative',
-        paddingBottom: '141.4%',
-        backgroundColor: '#ffffff',
-        boxShadow: '0 2px 2px rgba(26,26,23,0.04), 0 8px 32px rgba(26,26,23,0.10)',
-        borderRadius: '0px',
-        overflow: 'hidden',
-      }}>
+      <div 
+        ref={containerRef}
+        style={{
+          width: '100%',
+          position: 'relative',
+          paddingBottom: '141.4%',
+          backgroundColor: '#ffffff',
+          boxShadow: '0 2px 2px rgba(26,26,23,0.04), 0 8px 32px rgba(26,26,23,0.10)',
+          borderRadius: '0px',
+          overflow: 'hidden',
+        }}
+      >
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
 
 
@@ -114,8 +132,16 @@ export default function A4Preview({ template, formData }: A4PreviewProps) {
             }}>PREMIUM</div>
           )}
 
-          {/* Content */}
-          <div style={{ position: 'relative', zIndex: 20, width: '100%', height: '100%' }}>
+          {/* Content (Fixed size, scaled down to fit parent container) */}
+          <div style={{ 
+            position: 'absolute', 
+            top: 0, left: 0, 
+            width: '540px', 
+            height: '763.56px', 
+            transform: `scale(${scale})`, 
+            transformOrigin: 'top left',
+            zIndex: 20 
+          }}>
             {PreviewComponent ? (
               <PreviewComponent formData={formData} />
             ) : (
