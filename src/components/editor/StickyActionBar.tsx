@@ -24,7 +24,7 @@ export default function StickyActionBar({
       {/* Price */}
       <div className="flex flex-col">
         <span className="text-[11px] font-semibold text-outline uppercase tracking-wide">Total Biaya</span>
-        <span className="text-2xl font-bold" style={{ color: free ? '#004ac6' : '#0d1c2f' }}>
+        <span className="text-2xl font-bold" style={{ color: free ? '#1B2E4A' : '#0d1c2f' }}>
           {free ? 'Gratis' : formatRupiah(template.price)}
         </span>
       </div>

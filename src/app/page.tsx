@@ -557,20 +557,18 @@ export default function HomePage() {
                     </div>
                     {free ? (
                       <span style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '3px',
-                        padding: '4px 10px', borderRadius: '8px', fontSize: '11px', fontWeight: 700,
-                        background: C.greenBg, color: C.green,
+                        fontSize: '11px', fontWeight: 700,
+                        color: C.goldDark, textTransform: 'uppercase', letterSpacing: '0.8px',
+                        marginTop: '4px'
                       }}>
-                        <span className="material-symbols-outlined icon-fill" style={{ fontSize: '11px' }}>check_circle</span>
                         Gratis
                       </span>
                     ) : (
                       <span style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '3px',
-                        padding: '4px 10px', borderRadius: '8px', fontSize: '11px', fontWeight: 700,
-                        background: C.goldLight, color: C.goldDark,
+                        fontSize: '11px', fontWeight: 700,
+                        color: C.goldDark, textTransform: 'uppercase', letterSpacing: '0.8px',
+                        marginTop: '4px'
                       }}>
-                        <span className="material-symbols-outlined icon-fill" style={{ fontSize: '11px' }}>star</span>
                         {formatRupiah(template.price)}
                       </span>
                     )}

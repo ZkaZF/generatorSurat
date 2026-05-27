@@ -117,13 +117,12 @@ export default function EditorClient({ template }: EditorClientProps) {
           {/* Price badge */}
           <span style={{
             flexShrink: 0,
-            display: 'inline-flex', alignItems: 'center', gap: '4px',
-            padding: '3px 10px', borderRadius: '8px', fontSize: '11px', fontWeight: 700,
-            ...(free
-              ? { background: '#DCFCE7', color: '#166534' }
-              : { background: '#F0E4C4', color: '#A88B3D' }),
+            fontSize: '11px', fontWeight: 700,
+            color: '#A88B3D',
+            textTransform: 'uppercase',
+            letterSpacing: '0.8px'
           }}>
-            {free ? '✓ Gratis' : formatRupiah(template.price)}
+            {free ? 'Gratis' : formatRupiah(template.price)}
           </span>
         </div>
 
