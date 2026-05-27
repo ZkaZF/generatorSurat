@@ -103,15 +103,15 @@ export default function EditorClient({ template }: EditorClientProps) {
 
         {/* Breadcrumb */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
-          <Link href="/" style={{
+          <Link href="/" className="editor-breadcrumb-brand" style={{
             fontFamily: 'var(--font-serif), Georgia, serif',
             color: '#1B2E4A', fontWeight: 400, fontSize: '15px', textDecoration: 'none', flexShrink: 0,
           }}>
             Surat<span style={{ color: '#C8A45C' }}>Otomatis</span>
           </Link>
-          <span style={{ color: '#D4C5A0', fontSize: '14px' }}>/</span>
-          <span className="material-symbols-outlined" style={{ fontSize: '14px', color: '#8A9AAA', flexShrink: 0 }}>description</span>
-          <span style={{ fontWeight: 700, fontSize: '14px', color: '#1B2E4A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span className="editor-breadcrumb-sep" style={{ color: '#D4C5A0', fontSize: '14px' }}>/</span>
+          <span className="editor-breadcrumb-icon material-symbols-outlined" style={{ fontSize: '14px', color: '#8A9AAA', flexShrink: 0 }}>description</span>
+          <span className="editor-breadcrumb-name" style={{ fontWeight: 700, fontSize: '14px', color: '#1B2E4A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {template.name}
           </span>
           {/* Price badge */}

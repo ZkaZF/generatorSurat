@@ -144,7 +144,7 @@ export default function HomePage() {
           pointerEvents: 'none',
         }} />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 480px', gap: '60px', alignItems: 'center', position: 'relative' }}>
+        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 480px', gap: '60px', alignItems: 'center', position: 'relative' }}>
 
           {/* ── Left: Copy ── */}
           <div>
@@ -161,7 +161,7 @@ export default function HomePage() {
             </div>
 
             {/* Headline — serif */}
-            <h1 style={{
+            <h1 className="hero-title" style={{
               fontFamily: 'var(--font-serif), Georgia, serif',
               fontSize: 'clamp(40px, 4.5vw, 68px)',
               fontWeight: 400,
@@ -175,7 +175,7 @@ export default function HomePage() {
               <span style={{ color: C.textSecond }}>Bebas Ribet.</span>
             </h1>
 
-            <p style={{
+            <p className="hero-subtitle" style={{
               fontSize: '17px', color: C.textSecond,
               lineHeight: 1.75, marginBottom: '36px', maxWidth: '500px',
             }}>
@@ -183,7 +183,7 @@ export default function HomePage() {
             </p>
 
             {/* Buttons */}
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div className="hero-btn-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
               <a
                 href="#templates"
                 id="hero-cta-lihat-template"
@@ -224,7 +224,7 @@ export default function HomePage() {
           </div>
 
           {/* ── Right: Floating Document Mockup ── */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '420px' }}>
+          <div className="hero-mockup-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '420px' }}>
             {/* Warm glow behind doc */}
             <div style={{
               position: 'absolute', bottom: '10%', left: '50%', transform: 'translateX(-50%)',
@@ -316,7 +316,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Feature Stats Row ── */}
-        <div style={{
+        <div className="hero-stats-row" style={{
           display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '16px', marginTop: '56px', position: 'relative',
         }}>
@@ -356,7 +356,7 @@ export default function HomePage() {
 
       {/* ══════════ CARA KERJA — Bento Grid ══════════ */}
       <section id="cara-kerja" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px 72px', position: 'relative' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'start' }}>
+        <div className="cara-kerja-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'start' }}>
 
           {/* Left large card — steps */}
           <div style={{
@@ -372,7 +372,7 @@ export default function HomePage() {
               Tiga Langkah Mudah
             </h2>
 
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', justifyContent: 'center' }}>
+            <div className="cara-kerja-steps" style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', justifyContent: 'center' }}>
               {[
                 { step: '1', icon: 'touch_app',   title: 'Pilih Template',  desc: 'Cari dan pilih jenis surat dari koleksi kami' },
                 { step: '2', icon: 'edit',         title: 'Isi Form',        desc: 'Lengkapi data dan tambahkan tanda tangan digital' },
@@ -396,7 +396,7 @@ export default function HomePage() {
                     <div style={{ fontSize: '11px', color: C.textSecond, lineHeight: 1.5 }}>{item.desc}</div>
                   </div>
                   {idx < 2 && (
-                    <div style={{ marginTop: '22px', color: C.cardBorder, flexShrink: 0 }}>
+                    <div className="step-divider" style={{ marginTop: '22px', color: C.cardBorder, flexShrink: 0 }}>
                       <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>arrow_forward</span>
                     </div>
                   )}

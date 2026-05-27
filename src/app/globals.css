@@ -231,3 +231,84 @@
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Mobile Responsive Rules (max-width: 768px)
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow globally */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* ── Hero section fixes ── */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-top: 32px !important;
+    padding-bottom: 16px !important;
+    text-align: center !important;
+  }
+
+  .hero-title {
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .hero-subtitle {
+    font-size: 14px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.65 !important;
+    max-width: 90% !important;
+  }
+
+  .hero-btn-group {
+    justify-content: center !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-mockup-wrapper {
+    height: 240px !important;
+    order: -1 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-top: 28px !important;
+  }
+
+  /* ── Cara Kerja bento fixes ── */
+  .cara-kerja-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .cara-kerja-steps {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  .step-divider {
+    transform: rotate(90deg) !important;
+    margin: 0 !important;
+  }
+
+  /* ── Header brand fixes in Editor ── */
+  .editor-breadcrumb-brand,
+  .editor-breadcrumb-sep,
+  .editor-breadcrumb-icon {
+    display: none !important;
+  }
+
+  .editor-breadcrumb-name {
+    font-size: 13px !important;
+    max-width: 140px !important;
+  }
+}
