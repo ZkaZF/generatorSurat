@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 const inter = Inter({
@@ -43,6 +44,7 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', background: '#ffffff', color: '#1a1a17' }}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
