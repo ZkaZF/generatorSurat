@@ -132,7 +132,7 @@ export default function HomePage() {
       </header>
 
       {/* ══════════ HERO ══════════ */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 60px', position: 'relative', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px 60px', position: 'relative', overflow: 'hidden' }}>
         {/* Geo overlay decoration */}
         <div className="geo-overlay" style={{ borderRadius: '32px' }} />
 
@@ -226,7 +226,7 @@ export default function HomePage() {
           {/* ── Right: Floating Document Mockup ── */}
           <div className="hero-mockup-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '420px' }}>
             {/* Warm glow behind doc */}
-            <div style={{
+            <div className="hero-doc-glow" style={{
               position: 'absolute', bottom: '10%', left: '50%', transform: 'translateX(-50%)',
               width: '300px', height: '200px',
               background: 'radial-gradient(ellipse, rgba(200,164,92,0.25) 0%, transparent 70%)',
@@ -236,7 +236,7 @@ export default function HomePage() {
 
             {/* Document card — floating animation */}
             <div
-              className="animate-float-doc"
+              className="animate-float-doc hero-doc-card"
               style={{
                 width: '300px',
                 background: '#FFFFFF',

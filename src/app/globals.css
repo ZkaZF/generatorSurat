@@ -272,9 +272,19 @@
   }
 
   .hero-mockup-wrapper {
-    height: 240px !important;
+    height: 220px !important;
     order: -1 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+  }
+
+  /* Scale down the floating document card on mobile */
+  .hero-doc-card {
+    transform: rotate(-4deg) scale(0.72) !important;
+    transform-origin: center center !important;
+  }
+
+  .hero-doc-glow {
+    display: none !important;
   }
 
   .hero-stats-row {
@@ -300,6 +310,11 @@
     margin: 0 !important;
   }
 
+  .hero-section {
+    padding: 20px 16px 16px !important;
+    overflow: hidden !important;
+  }
+
   /* ── Header brand fixes in Editor ── */
   .editor-breadcrumb-brand,
   .editor-breadcrumb-sep,
@@ -310,5 +325,21 @@
   .editor-breadcrumb-name {
     font-size: 13px !important;
     max-width: 140px !important;
+  }
+}
+
+/* Extra-small screens (phones ≤ 480px) */
+@media (max-width: 480px) {
+  .hero-doc-card {
+    transform: rotate(-4deg) scale(0.58) !important;
+    transform-origin: center center !important;
+  }
+
+  .hero-mockup-wrapper {
+    height: 180px !important;
+  }
+
+  .hero-title {
+    font-size: 28px !important;
   }
 }
