@@ -16,7 +16,7 @@ export function SuratPaktaIntegrasPDF({ formData, withWatermark = true }: Props)
     'Menerima sanksi sesuai ketentuan yang berlaku apabila melanggar pakta ini.',
   ];
   return (
-    <Document title={`Pakta Integritas - ${nama || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`Pakta Integritas - ${nama || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="PAKTA INTEGRITAS" />

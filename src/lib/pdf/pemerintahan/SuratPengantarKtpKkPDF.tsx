@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratPengantarKtpKkPDF({ formData, withWatermark = true }: Props) {
   const { nama, nik, tempatLahir, tanggalLahir, jenisPermohonan, alamat, rtRw, kotaSurat, tanggalSurat, namaKetuaRT, tandaTangan } = formData;
   return (
-    <Document title={`KTP_KK_Pengantar - ${nama || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`KTP_KK_Pengantar - ${nama || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PENGANTAR RT/RW (KTP & KK BARU)" />

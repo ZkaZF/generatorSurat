@@ -23,7 +23,7 @@ export function KwitansiJualBeliPDF({ formData, withWatermark = true }: Props) {
   );
 
   return (
-    <Document title="Kwitansi Jual Beli" author="SuratOtomatis.id">
+    <Document title="Kwitansi Jual Beli" author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         {/* Header */}

@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratHutangPiutangPDF({ formData, withWatermark = true }: Props) {
   const { namaPemberiPinjaman, nikPemberi, namaPeminjam, nikPeminjam, alamatPeminjam, jumlahPinjaman, bungaPerBulan, lamaPinjaman, caraPembayaran, jaminan, kotaSurat, tanggalSurat, tandaTanganPemberi, tandaTanganPenerima } = formData;
   return (
-    <Document title="Surat Perjanjian Hutang Piutang" author="SuratOtomatis.id">
+    <Document title="Surat Perjanjian Hutang Piutang" author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERJANJIAN HUTANG PIUTANG" />

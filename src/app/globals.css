@@ -2,86 +2,89 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    Tailwind v4 — @theme block
-   Warm Premium Palette (Stitch Reference)
+   Getburnt — Monochrome Architectural Elegance
    ═══════════════════════════════════════════════════════════════════════════ */
 @theme {
-  /* ── Font Family ─────────────────────────────────────────────────────── */
-  --font-inter:  'Inter', sans-serif;
-  --font-serif:  'DM Serif Display', Georgia, serif;
+  /* ── Font Families ───────────────────────────────────────────────────── */
+  --font-nyght-serif: 'Playfair Display', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-switzer:     'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* ── Primary — Deep Navy ─────────────────────────────────────────────── */
-  --color-primary:                   #1B2E4A;
-  --color-primary-container:         #2A4060;
-  --color-primary-fixed:             #E8EFF8;
-  --color-primary-fixed-dim:         #C8D8EC;
-  --color-on-primary:                #FFFFFF;
-  --color-on-primary-container:      #EEF3FA;
-  --color-inverse-primary:           #8AADCE;
+  /* ── Colors ──────────────────────────────────────────────────────────── */
+  --color-storm-charcoal: #1a1a17;
+  --color-canvas-white:   #ffffff;
+  --color-soft-slate:     #5f5f5d;
+  --color-ice-mist:       #ffffff0f;
+  --color-dust-shadow:    #1a1a170a;
 
-  /* ── Accent — Warm Gold ──────────────────────────────────────────────── */
-  --color-secondary:                 #C8A45C;
-  --color-secondary-container:       #F0E4C4;
-  --color-on-secondary:              #1B2E4A;
-  --color-on-secondary-container:    #5C3D00;
+  /* ── Typography Scale ────────────────────────────────────────────────── */
+  --text-caption:           14px;
+  --leading-caption:        1.5;
+  --tracking-caption:       0.42px;
 
-  --color-tertiary:                  #A88B3D;
-  --color-tertiary-container:        #E8D5A8;
-  --color-on-tertiary:               #FFFFFF;
-  --color-on-tertiary-container:     #3D2800;
+  --text-body:              16px;
+  --leading-body:           1.5;
+  --tracking-body:          0.48px;
 
-  /* ── Surface — Warm Cream / Ivory ────────────────────────────────────── */
-  --color-surface:                   #FDF8F0;
-  --color-surface-dim:               #E8DCC8;
-  --color-surface-bright:            #FEFCF8;
-  --color-surface-variant:           #F5EFE3;
-  --color-surface-container-lowest:  #FFFFFF;
-  --color-surface-container-low:     #FAF5EB;
-  --color-surface-container:         #F5EFE3;
-  --color-surface-container-high:    #EDE5D5;
-  --color-surface-container-highest: #E5D8C5;
-  --color-on-surface:                #1B2E4A;
-  --color-on-surface-variant:        #5A6A7A;
-  --color-inverse-surface:           #2C3E50;
-  --color-inverse-on-surface:        #F5EFE3;
+  --text-subheading:        20px;
+  --leading-subheading:     1.5;
+  --tracking-subheading:    0.6px;
 
-  --color-background:                #FDF8F0;
-  --color-on-background:             #1B2E4A;
+  --text-heading-sm:        26px;
+  --leading-heading-sm:     1.2;
+  --tracking-heading-sm:    -0.26px;
 
-  --color-outline:                   #8A9AAA;
-  --color-outline-variant:           #D4C5A0;
+  --text-heading:           48px;
+  --leading-heading:        1.1;
+  --tracking-heading:       -0.48px;
 
-  --color-error:                     #C62828;
-  --color-error-container:           #FFDAD6;
-  --color-on-error:                  #FFFFFF;
-  --color-on-error-container:        #93000A;
+  --text-heading-lg:        62px;
+  --leading-heading-lg:     1.1;
+  --tracking-heading-lg:    -0.62px;
 
-  /* ── Spacing ─────────────────────────────────────────────────────────── */
-  --spacing-xs:             4px;
-  --spacing-sm:             8px;
-  --spacing-md:             16px;
-  --spacing-lg:             24px;
-  --spacing-xl:             32px;
-  --spacing-2xl:            48px;
-  --spacing-base:           4px;
-  --spacing-gutter:         16px;
-  --spacing-margin-mobile:  20px;
+  --text-display:           72px;
+  --leading-display:        1;
+  --tracking-display:       -0.72px;
+
+  /* ── Font Weights ────────────────────────────────────────────────────── */
+  --font-weight-light:      300;
+  --font-weight-regular:    400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+
+  /* ── Spacing (8px base unit) ─────────────────────────────────────────── */
+  --spacing-8:    8px;
+  --spacing-16:   16px;
+  --spacing-24:   24px;
+  --spacing-32:   32px;
+  --spacing-40:   40px;
+  --spacing-48:   48px;
+  --spacing-64:   64px;
+  --spacing-96:   96px;
+  --spacing-120:  120px;
+
+  /* ── Layout ──────────────────────────────────────────────────────────── */
+  --section-gap:    48px;
+  --card-padding:   24px;
+  --element-gap:    8px;
 
   /* ── Border Radius ───────────────────────────────────────────────────── */
-  --radius-sm:   6px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  --radius-2xl:  24px;
-  --radius-full: 9999px;
+  --radius-cards:       0px;
+  --radius-forms:       6px;
+  --radius-buttons:     1440px;
+  --radius-navigation:  1440px;
+  --radius-md:          6px;
+  --radius-full:        1440px;
 
-  /* ── Box Shadows ─────────────────────────────────────────────────────── */
-  --shadow-card:       0 2px 10px rgba(27,46,74,0.06);
-  --shadow-card-hover: 0 8px 32px rgba(27,46,74,0.12);
-  --shadow-paper:      0 8px 40px rgba(27,46,74,0.10);
-  --shadow-header:     0 1px 2px rgba(27,46,74,0.06);
-  --shadow-bottom-bar: 0 -4px 24px rgba(27,46,74,0.04);
-  --shadow-bottom-nav: 0 -2px 15px rgba(27,46,74,0.05);
-  --shadow-gold:       0 4px 20px rgba(200,164,92,0.3);
+  /* ── Surfaces ────────────────────────────────────────────────────────── */
+  --surface-canvas-white:         #ffffff;
+  --surface-dust-shadow-overlay:  #1a1a170a;
+  --surface-storm-charcoal:       #1a1a17;
+
+  /* Legacy aliases for editor components not yet redesigned */
+  --color-background:             #ffffff;
+  --color-on-surface:             #1a1a17;
+  --color-primary:                #1a1a17;
+  --color-on-primary:             #ffffff;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -97,9 +100,9 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #FDF8F0;
-    color: #1B2E4A;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a17;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100dvh;
@@ -131,68 +134,145 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   Utility Classes
+   Getburnt Utility Classes
    ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Scrollbar */
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* A4 Paper — aspect ratio 210:297 = 1:1.414 */
+/* A4 Paper */
 .a4-paper {
   aspect-ratio: 1 / 1.414;
   background: white;
-  box-shadow: 0 8px 40px rgba(27,46,74,0.15);
+  box-shadow: 0 4px 24px rgba(26,26,23,0.10);
   position: relative;
   overflow: hidden;
 }
 
-.serif-text { font-family: 'DM Serif Display', Georgia, serif; }
-.font-serif  { font-family: 'DM Serif Display', Georgia, serif; }
+/* Serif utilities */
+.serif-text   { font-family: 'Playfair Display', Georgia, serif; }
+.font-serif   { font-family: 'Playfair Display', Georgia, serif; }
 
+/* Signature canvas */
 .signature-canvas {
   touch-action: none;
   user-select: none;
   cursor: crosshair;
 }
 
+/* Safe area bottom */
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 16px);
 }
 
-/* ── Gold border card ─────────────────────────────────────────────────── */
-.cream-card {
-  background: #FEFCF8;
-  border: 1px solid #D4C5A0;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(27,46,74,0.06);
+/* ── Card variants ─────────────────────────────────────────────────────── */
+
+/* Flat 0px architectural card (Getburnt default) */
+.card-flat {
+  background: #ffffff;
+  border: 1px solid rgba(26,26,23,0.10);
+  border-radius: 0px;
 }
 
-.cream-card:hover {
-  border-color: #C8A45C;
-  box-shadow: 0 6px 24px rgba(27,46,74,0.10);
+.card-flat:hover {
+  background: rgba(26,26,23,0.03);
+  border-color: rgba(26,26,23,0.20);
 }
 
-/* ── Decorative geometric lines (stitch pattern overlay) ─────────────── */
-.geo-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(45deg,  rgba(200,164,92,0.07) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(200,164,92,0.07) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+/* Light overlay card */
+.card-overlay {
+  background: rgba(26,26,23,0.04);
+  border-radius: 0px;
+}
+
+/* ── Button variants ───────────────────────────────────────────────────── */
+
+/* Filled Dark Button — primary CTA */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a17;
+  color: #ffffff;
+  border: none;
+  border-radius: 1440px;
+  padding: 8px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.45px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.btn-dark:hover {
+  opacity: 0.82;
+}
+
+/* Ghost Light Button — secondary / on dark bg */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 1440px;
+  padding: 8px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.45px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Inverse Light Button — on dark surface */
+.btn-inverse {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #1a1a17;
+  border: none;
+  border-radius: 1440px;
+  padding: 8px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.45px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.btn-inverse:hover {
+  opacity: 0.88;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   Animations
+   Animations — Subtle (Getburnt: no heavy motion)
    ═══════════════════════════════════════════════════════════════════════════ */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @keyframes floatDoc {
-  0%, 100% { transform: rotate(-4deg) translateY(0px); }
-  50%       { transform: rotate(-4deg) translateY(-10px); }
+  0%, 100% { transform: rotate(-3deg) translateY(0px); }
+  50%       { transform: rotate(-3deg) translateY(-8px); }
 }
 
 @keyframes spin {
@@ -205,29 +285,24 @@
   100% { background-position:  200% 0; }
 }
 
-@keyframes goldPulse {
-  0%, 100% { box-shadow: 0 4px 20px rgba(200,164,92,0.25); }
-  50%       { box-shadow: 0 4px 32px rgba(200,164,92,0.50); }
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.5s ease-out both;
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out both;
 }
 
 .animate-float-doc {
-  animation: floatDoc 4s ease-in-out infinite;
+  animation: floatDoc 5s ease-in-out infinite;
 }
 
 .animate-spin {
   animation: spin 0.8s linear infinite;
 }
 
-.animate-gold-pulse {
-  animation: goldPulse 2.5s ease-in-out infinite;
-}
-
 .shimmer {
-  background: linear-gradient(90deg, #F5EFE3 25%, #EDE5D5 50%, #F5EFE3 75%);
+  background: linear-gradient(90deg, #f5f5f4 25%, #e8e8e6 50%, #f5f5f4 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -236,32 +311,30 @@
    Mobile Responsive Rules (max-width: 768px)
    ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Prevent horizontal overflow globally */
   html, body {
     overflow-x: hidden !important;
     max-width: 100vw !important;
   }
 
-  /* ── Hero section fixes ── */
   .hero-grid {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    padding-top: 32px !important;
-    padding-bottom: 16px !important;
+    gap: 32px !important;
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
     text-align: center !important;
   }
 
   .hero-title {
-    font-size: 34px !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.5px !important;
+    font-size: 42px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.48px !important;
   }
 
   .hero-subtitle {
-    font-size: 14px !important;
+    font-size: 15px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    line-height: 1.65 !important;
+    line-height: 1.6 !important;
     max-width: 90% !important;
   }
 
@@ -274,48 +347,37 @@
   .hero-mockup-wrapper {
     height: 220px !important;
     order: -1 !important;
-    overflow: visible !important;
   }
 
-  /* Scale down the floating document card on mobile */
   .hero-doc-card {
-    transform: rotate(-4deg) scale(0.72) !important;
+    transform: rotate(-3deg) scale(0.70) !important;
     transform-origin: center center !important;
-  }
-
-  .hero-doc-glow {
-    display: none !important;
   }
 
   .hero-stats-row {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    margin-top: 28px !important;
+    gap: 1px !important;
   }
 
-  /* ── Cara Kerja bento fixes ── */
   .cara-kerja-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 0 !important;
   }
 
   .cara-kerja-steps {
     flex-direction: column !important;
-    align-items: center !important;
-    gap: 16px !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
   }
 
   .step-divider {
-    transform: rotate(90deg) !important;
-    margin: 0 !important;
+    display: none !important;
   }
 
   .hero-section {
-    padding: 20px 16px 16px !important;
-    overflow: hidden !important;
+    padding: 24px 16px 16px !important;
   }
 
-  /* ── Header brand fixes in Editor ── */
   .editor-breadcrumb-brand,
   .editor-breadcrumb-sep,
   .editor-breadcrumb-icon {
@@ -328,10 +390,9 @@
   }
 }
 
-/* Extra-small screens (phones ≤ 480px) */
 @media (max-width: 480px) {
   .hero-doc-card {
-    transform: rotate(-4deg) scale(0.58) !important;
+    transform: rotate(-3deg) scale(0.55) !important;
     transform-origin: center center !important;
   }
 
@@ -340,6 +401,6 @@
   }
 
   .hero-title {
-    font-size: 28px !important;
+    font-size: 34px !important;
   }
 }

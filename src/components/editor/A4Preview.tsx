@@ -85,12 +85,10 @@ export default function A4Preview({ template, formData }: A4PreviewProps) {
     <div style={{ width: '100%', maxWidth: '540px', margin: '0 auto' }}>
       {/* Caption row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', paddingInline: '2px' }}>
-        <span style={{ fontSize: '11px', fontWeight: 600, color: '#004ac6', display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <span style={{ fontSize: '11px', fontWeight: 500, color: '#5f5f5d', display: 'flex', alignItems: 'center', gap: '4px', letterSpacing: '0.42px' }}>
           <span style={{ fontSize: '14px' }}>📄</span> Preview A4
         </span>
-        {free && (
-          <span style={{ fontSize: '10px', color: '#737686', fontStyle: 'italic' }}>Versi gratis · ada watermark</span>
-        )}
+
       </div>
 
       {/* A4 Paper — padding-bottom trick for reliable aspect ratio */}
@@ -99,32 +97,20 @@ export default function A4Preview({ template, formData }: A4PreviewProps) {
         position: 'relative',
         paddingBottom: '141.4%',
         backgroundColor: '#ffffff',
-        boxShadow: '0 4px 40px rgba(0,0,0,0.12)',
-        borderRadius: '3px',
+        boxShadow: '0 2px 2px rgba(26,26,23,0.04), 0 8px 32px rgba(26,26,23,0.10)',
+        borderRadius: '0px',
         overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-          {/* Watermark */}
-          {free && (
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 10,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              pointerEvents: 'none', userSelect: 'none',
-            }}>
-              <span style={{
-                fontSize: '28px', fontWeight: 900, color: '#004ac6',
-                opacity: 0.04, transform: 'rotate(-35deg)',
-                whiteSpace: 'nowrap', letterSpacing: '6px',
-              }}>SuratOtomatis.id</span>
-            </div>
-          )}
+
 
           {/* Premium badge */}
           {!free && (
             <div style={{
               position: 'absolute', top: '10px', right: '10px', zIndex: 30,
-              background: '#004ac6', color: '#fff', fontSize: '9px',
-              fontWeight: 700, padding: '3px 10px', borderRadius: '999px',
+              background: '#1a1a17', color: '#ffffff', fontSize: '9px',
+              fontWeight: 600, padding: '3px 10px', borderRadius: '1440px',
+              letterSpacing: '0.8px',
             }}>PREMIUM</div>
           )}
 

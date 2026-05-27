@@ -51,8 +51,8 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
             {template.steps.map((s, idx) => (
               <div key={s.id} className="flex-1">
                 <div style={{
-                  height: '3px', borderRadius: '9999px', transition: 'background .3s',
-                  background: idx <= currentStep ? '#1B2E4A' : '#E5D8C5',
+                  height: '2px', borderRadius: '0px', transition: 'background .3s',
+                  background: idx <= currentStep ? '#1a1a17' : 'rgba(26,26,23,0.10)',
                 }} />
               </div>
             ))}
@@ -62,8 +62,8 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
             {template.steps.map((s, idx) => (
               <div key={s.id} className="flex-1">
                 <span style={{
-                  fontSize: '10px', fontWeight: 600, lineHeight: 1.3, transition: 'color .3s',
-                  color: idx === currentStep ? '#1B2E4A' : idx < currentStep ? '#8A9AAA' : '#D4C5A0',
+                  fontSize: '10px', fontWeight: 500, lineHeight: 1.3, transition: 'color .3s', letterSpacing: '0.42px',
+                  color: idx === currentStep ? '#1a1a17' : idx < currentStep ? '#5f5f5d' : 'rgba(26,26,23,0.25)',
                 }}>
                   {s.title}
                 </span>
@@ -107,12 +107,12 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
               type="button"
               onClick={handlePrev}
               style={{
-                flex: 1, height: '44px', borderRadius: '12px', fontSize: '14px', fontWeight: 600,
-                border: '1.5px solid #D4C5A0', background: 'transparent', color: '#5A6A7A',
-                cursor: 'pointer', transition: 'background .15s',
+                flex: 1, height: '40px', borderRadius: '1440px', fontSize: '14px', fontWeight: 500,
+                border: '1px solid rgba(26,26,23,0.12)', background: 'transparent', color: '#5f5f5d',
+                cursor: 'pointer', transition: 'all .15s', letterSpacing: '0.42px',
               }}
-              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F5EFE3')}
-              onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'transparent')}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = '#1a1a17'; (e.currentTarget as HTMLButtonElement).style.color = '#1a1a17'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(26,26,23,0.12)'; (e.currentTarget as HTMLButtonElement).style.color = '#5f5f5d'; }}
             >
               ← Sebelumnya
             </button>
@@ -122,12 +122,11 @@ export default function DynamicForm({ template, onFormChange }: DynamicFormProps
               type="button"
               onClick={handleNext}
               style={{
-                flex: 1, height: '44px', borderRadius: '12px', fontSize: '14px', fontWeight: 700,
-                border: 'none', background: '#1B2E4A', color: '#fff',
-                cursor: 'pointer', transition: 'opacity .15s',
-                boxShadow: '0 3px 12px rgba(27,46,74,0.25)',
+                flex: 1, height: '40px', borderRadius: '1440px', fontSize: '14px', fontWeight: 500,
+                border: 'none', background: '#1a1a17', color: '#ffffff',
+                cursor: 'pointer', transition: 'opacity .15s', letterSpacing: '0.42px',
               }}
-              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.88')}
+              onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.82')}
               onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
             >
               Selanjutnya →

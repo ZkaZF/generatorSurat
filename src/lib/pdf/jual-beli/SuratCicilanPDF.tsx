@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratCicilanPDF({ formData, withWatermark = true }: Props) {
   const { namaKreditur, namaDebitur, nominalHutang, alasanHutang, nominalCicilanPerBulan, jumlahTenor, tanggalJatuhTempo, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`Cicilan Angsuran - ${namaDebitur || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`Cicilan Angsuran - ${namaDebitur || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT KESEPAKATAN PEMBAYARAN CICILAN" />

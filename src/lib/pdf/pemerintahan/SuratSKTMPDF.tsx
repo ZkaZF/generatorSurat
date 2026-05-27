@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratSKTMPDF({ formData, withWatermark = true }: Props) {
   const { namaKepalaKeluarga, nama, nik, tempatLahir, tanggalLahir, pekerjaan, alamat, keperluan, kotaSurat, tanggalSurat, namaPejabat, jabatanPejabat, tandaTangan } = formData;
   return (
-    <Document title={`SKTM - ${nama || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`SKTM - ${nama || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT KETERANGAN TIDAK MAMPU (SKTM)" />

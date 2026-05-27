@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratJualBeliTanahPDF({ formData, withWatermark = true }: Props) {
   const { namaPenjual, nikPenjual, alamatPenjual, namaPembeli, nikPembeli, alamatPembeli, luasTanah, nomorSertifikat, lokasiTanah, hargaKesepakatan, metodePembayaran, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`Jual Beli Tanah - ${namaPembeli || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`Jual Beli Tanah - ${namaPembeli || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERJANJIAN JUAL BELI TANAH" />

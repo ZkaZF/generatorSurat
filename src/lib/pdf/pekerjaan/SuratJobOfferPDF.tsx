@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratJobOfferPDF({ formData, withWatermark = true }: Props) {
   const { namaPerusahaan, namaHRD, namaKandidat, posisiTawaran, gajiTawaran, tanggalMulaiOffer, batasWaktuRespon, kotaSurat, tanggalSurat } = formData;
   return (
-    <Document title={`Job Offer - ${namaKandidat || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`Job Offer - ${namaKandidat || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title={orDash(namaPerusahaan as string).toUpperCase()} sub="DEPARTEMEN REKRUTMEN & SDM" />

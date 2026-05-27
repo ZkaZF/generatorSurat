@@ -45,12 +45,12 @@ const DataRow = ({ label, value }: { label: string; value: string }) => (
 
 export function LetterPDF({ docTitle, withWatermark, sections, signatures }: LetterPDFConfig) {
   return (
-    <Document title={docTitle} author="SuratOtomatis.id">
+    <Document title={docTitle} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {/* Watermark */}
         {withWatermark && (
           <View style={styles.watermarkContainer} fixed>
-            <Text style={styles.watermarkText}>SuratOtomatis.id</Text>
+            <Text style={styles.watermarkText}>Suratin.id</Text>
           </View>
         )}
 
@@ -164,7 +164,7 @@ export function LetterPDF({ docTitle, withWatermark, sections, signatures }: Let
         {/* Footer */}
         {withWatermark && (
           <Text style={styles.footer} fixed>
-            Dibuat oleh SuratOtomatis.id — Dokumen ini merupakan salinan yang sah
+            Dibuat oleh Suratin.id — Dokumen ini merupakan salinan yang sah
           </Text>
         )}
       </Page>

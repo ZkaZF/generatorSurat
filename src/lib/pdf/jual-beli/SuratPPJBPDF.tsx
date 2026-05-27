@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratPPJBPDF({ formData, withWatermark = true }: Props) {
   const { namaPenjual, nikPenjual, namaPembeli, nikPembeli, deskripsiProperti, hargaTotal, uangMuka, sisaPembayaran, jumlahTenor, batasPelunasan, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`PPJB - ${namaPembeli || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`PPJB - ${namaPembeli || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERJANJIAN PENGIKATAN JUAL BELI (PPJB)" />

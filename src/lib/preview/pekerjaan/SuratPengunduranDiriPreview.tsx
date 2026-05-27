@@ -98,7 +98,7 @@ export default function SuratPengunduranDiriPreview({ formData }: Props) {
         </div>
       </div>
 
-      <div style={S.footer}>Dibuat oleh SuratOtomatis.id</div>
+      <div style={S.footer}>Dibuat oleh Suratin.id</div>
     </div>
   );
 }

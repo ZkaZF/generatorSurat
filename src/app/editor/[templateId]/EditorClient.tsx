@@ -8,13 +8,13 @@ import { formatRupiah } from '@/lib/utils';
 import dynamic from 'next/dynamic';
 import DynamicForm from '@/components/editor/DynamicForm';
 
-const A4Preview = dynamic(() => import('@/components/editor/A4Preview'), { 
-  ssr: false, 
+const A4Preview = dynamic(() => import('@/components/editor/A4Preview'), {
+  ssr: false,
   loading: () => (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#004ac6', fontSize: '14px', fontWeight: 600 }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#5f5f5d', fontSize: '14px', letterSpacing: '0.42px' }}>
       Memuat Preview...
     </div>
-  ) 
+  )
 });
 
 interface EditorClientProps {
@@ -23,9 +23,23 @@ interface EditorClientProps {
 
 type EditorTab = 'form' | 'preview';
 
+// ── Getburnt design tokens ────────────────────────────────────────────────────
+const C = {
+  charcoal: '#1a1a17',
+  white:    '#ffffff',
+  slate:    '#5f5f5d',
+  border:   'rgba(26,26,23,0.10)',
+  dust:     'rgba(26,26,23,0.04)',
+} as const;
+
+const serif: React.CSSProperties = {
+  fontFamily: "'Playfair Display', Georgia, serif",
+  fontWeight: 300,
+};
+
 export default function EditorClient({ template }: EditorClientProps) {
-  const [activeTab, setActiveTab] = useState<EditorTab>('form');
-  const [formData, setFormData] = useState<FormData>({});
+  const [activeTab, setActiveTab]       = useState<EditorTab>('form');
+  const [formData, setFormData]         = useState<FormData>({});
   const [isDownloading, setIsDownloading] = useState(false);
   const free = isFreeTemplate(template);
 
@@ -47,9 +61,9 @@ export default function EditorClient({ template }: EditorClientProps) {
         return;
       }
       const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
       a.download = `${template.name.replace(/\s+/g, '_')}.pdf`;
       document.body.appendChild(a);
       a.click();
@@ -62,65 +76,58 @@ export default function EditorClient({ template }: EditorClientProps) {
     }
   };
 
-  // ─── Shared button style ───────────────────────────────────────────────────
-  const dlBtnStyle: React.CSSProperties = {
-    display: 'inline-flex', alignItems: 'center', gap: '8px',
-    background: '#1B2E4A', color: '#ffffff',
-    fontWeight: 700, fontSize: '14px',
-    padding: '10px 22px', borderRadius: '12px',
-    border: 'none', cursor: isDownloading ? 'not-allowed' : 'pointer',
-    opacity: isDownloading ? 0.65 : 1,
-    boxShadow: '0 3px 14px rgba(27,46,74,0.3)',
-    transition: 'opacity .15s',
-    whiteSpace: 'nowrap' as const,
-  };
-
   return (
-    // Outer shell — full viewport height, flex column
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#FDF8F0' }}>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', background: C.white }}>
 
       {/* ══ HEADER ══════════════════════════════════════════════════════════ */}
       <header style={{
         flexShrink: 0, height: '56px',
-        background: 'rgba(253,248,240,0.96)', borderBottom: '1px solid #D4C5A0',
+        background: C.white,
+        borderBottom: `1px solid ${C.border}`,
         display: 'flex', alignItems: 'center',
         padding: '0 20px', gap: '12px',
-        boxShadow: '0 1px 4px rgba(27,46,74,0.06)',
         zIndex: 40,
       }}>
         {/* Back button */}
         <Link href="/" style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          width: '36px', height: '36px', borderRadius: '10px',
-          color: '#5A6A7A', textDecoration: 'none', flexShrink: 0,
-          transition: 'background .15s',
+          width: '32px', height: '32px',
+          color: C.slate, textDecoration: 'none', flexShrink: 0,
+          transition: 'color .15s',
         }}
-          onMouseEnter={e => (e.currentTarget.style.background = '#F5EFE3')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+          onMouseEnter={e => (e.currentTarget.style.color = C.charcoal)}
+          onMouseLeave={e => (e.currentTarget.style.color = C.slate)}
         >
           <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>arrow_back</span>
         </Link>
 
+        {/* Divider */}
+        <div style={{ width: '1px', height: '20px', background: C.border, flexShrink: 0 }} />
+
         {/* Breadcrumb */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0 }}>
           <Link href="/" className="editor-breadcrumb-brand" style={{
-            fontFamily: 'var(--font-serif), Georgia, serif',
-            color: '#1B2E4A', fontWeight: 400, fontSize: '15px', textDecoration: 'none', flexShrink: 0,
+            ...serif,
+            color: C.charcoal, fontSize: '16px', textDecoration: 'none', flexShrink: 0, letterSpacing: '-0.26px',
           }}>
-            Surat<span style={{ color: '#C8A45C' }}>Otomatis</span>
+            Suratin
           </Link>
-          <span className="editor-breadcrumb-sep" style={{ color: '#D4C5A0', fontSize: '14px' }}>/</span>
-          <span className="editor-breadcrumb-icon material-symbols-outlined" style={{ fontSize: '14px', color: '#8A9AAA', flexShrink: 0 }}>description</span>
-          <span className="editor-breadcrumb-name" style={{ fontWeight: 700, fontSize: '14px', color: '#1B2E4A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span className="editor-breadcrumb-sep" style={{ color: C.border, fontSize: '16px' }}>/</span>
+          <span className="editor-breadcrumb-icon material-symbols-outlined" style={{ fontSize: '14px', color: C.slate, flexShrink: 0 }}>description</span>
+          <span className="editor-breadcrumb-name" style={{
+            fontWeight: 500, fontSize: '14px', color: C.charcoal,
+            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+            letterSpacing: '0.42px',
+          }}>
             {template.name}
           </span>
-          {/* Price badge */}
+          {/* Price/free badge */}
           <span style={{
             flexShrink: 0,
-            fontSize: '11px', fontWeight: 700,
-            color: '#A88B3D',
+            fontSize: '11px', fontWeight: 500,
+            color: C.slate,
+            letterSpacing: '0.8px',
             textTransform: 'uppercase',
-            letterSpacing: '0.8px'
           }}>
             {free ? 'Gratis' : formatRupiah(template.price)}
           </span>
@@ -131,13 +138,22 @@ export default function EditorClient({ template }: EditorClientProps) {
           onClick={handleDownload}
           disabled={isDownloading}
           style={{
-            ...dlBtnStyle,
-            background: isDownloading ? '#5A6A7A' : '#1B2E4A',
-            boxShadow: isDownloading ? 'none' : '0 3px 14px rgba(27,46,74,0.3)',
+            display: 'inline-flex', alignItems: 'center', gap: '7px',
+            background: isDownloading ? C.slate : C.charcoal,
+            color: C.white, border: 'none', fontWeight: 500,
+            fontSize: '13px', letterSpacing: '0.42px',
+            padding: '8px 20px', borderRadius: '1440px',
+            cursor: isDownloading ? 'not-allowed' : 'pointer',
+            opacity: isDownloading ? 0.65 : 1,
+            transition: 'opacity .15s',
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
           }}
+          onMouseEnter={e => { if (!isDownloading) (e.currentTarget as HTMLButtonElement).style.opacity = '0.82'; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.opacity = isDownloading ? '0.65' : '1'; }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>
-            {isDownloading ? 'progress_activity' : free ? 'download' : 'payments'}
+          <span className="material-symbols-outlined" style={{ fontSize: '15px' }}>
+            {isDownloading ? 'progress_activity' : 'download'}
           </span>
           {isDownloading ? 'Memproses...' : free ? 'Download PDF' : `Bayar · ${formatRupiah(template.price)}`}
         </button>
@@ -145,22 +161,22 @@ export default function EditorClient({ template }: EditorClientProps) {
 
       {/* ══ MOBILE TABS ═════════════════════════════════════════════════════ */}
       <div style={{
-        flexShrink: 0, display: 'flex', borderBottom: '1px solid #D4C5A0',
-        background: '#FEFCF8',
+        flexShrink: 0, display: 'flex', borderBottom: `1px solid ${C.border}`,
+        background: C.white,
       }} className="md:hidden">
         {(['form', 'preview'] as EditorTab[]).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             style={{
-              flex: 1, padding: '12px 0', fontSize: '13px', fontWeight: 700,
+              flex: 1, padding: '12px 0', fontSize: '13px', fontWeight: 500,
               border: 'none', cursor: 'pointer', background: 'transparent',
-              borderBottom: activeTab === tab ? '2px solid #1B2E4A' : '2px solid transparent',
-              color: activeTab === tab ? '#1B2E4A' : '#8A9AAA',
-              transition: 'all .2s',
+              borderBottom: activeTab === tab ? `2px solid ${C.charcoal}` : '2px solid transparent',
+              color: activeTab === tab ? C.charcoal : C.slate,
+              transition: 'all .15s', letterSpacing: '0.42px',
             }}
           >
-            {tab === 'form' ? '📝 Isi Data' : '👁️ Lihat Hasil'}
+            {tab === 'form' ? '✏️ Isi Data' : '👁️ Lihat Hasil'}
           </button>
         ))}
       </div>
@@ -173,11 +189,10 @@ export default function EditorClient({ template }: EditorClientProps) {
           width: '420px', minWidth: '380px', flexShrink: 0,
           display: activeTab === 'preview' ? 'none' : 'flex',
           flexDirection: 'column', overflow: 'hidden',
-          background: '#FEFCF8', borderRight: '1px solid #D4C5A0',
+          background: C.white, borderRight: `1px solid ${C.border}`,
         }}
           className="md-always-flex"
         >
-          {/* This extra wrapper ensures form panel is always visible on desktop */}
           <style>{`
             @media (min-width: 768px) {
               .md-always-flex { display: flex !important; }
@@ -196,14 +211,12 @@ export default function EditorClient({ template }: EditorClientProps) {
             flex: 1, overflowY: 'auto', minWidth: 0,
             display: activeTab === 'form' ? 'none' : 'flex',
             flexDirection: 'column', alignItems: 'center',
-            padding: '24px 16px 48px',
-            background: 'linear-gradient(160deg, #EDE5D5 0%, #F5EFE3 100%)',
+            padding: '32px 16px 48px',
+            background: C.dust,
           }}
           className="md-always-flex"
         >
-          <div style={{ width: '100%', maxWidth: '580px' }}>
-            <A4Preview template={template} formData={formData} />
-          </div>
+          <A4Preview template={template} formData={formData} />
         </div>
       </div>
     </div>

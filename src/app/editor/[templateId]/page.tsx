@@ -12,11 +12,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const template = getTemplate(templateId);
     return {
-      title: `${template.name} — SuratOtomatis`,
+      title: `${template.name} — Suratin`,
       description: template.description,
     };
   } catch {
-    return { title: 'Template tidak ditemukan — SuratOtomatis' };
+    return { title: 'Template tidak ditemukan — Suratin' };
   }
 }
 

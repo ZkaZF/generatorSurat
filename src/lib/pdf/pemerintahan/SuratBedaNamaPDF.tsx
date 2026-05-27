@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratBedaNamaPDF({ formData, withWatermark = true }: Props) {
   const { nama, nik, tempatLahir, tanggalLahir, alamat, namaDokumen1, namaDiDokumen1, namaDokumen2, namaDiDokumen2, alasan, kotaSurat, tanggalSurat, tandaTangan } = formData;
   return (
-    <Document title={`Beda Nama - ${nama || 'Draft'}`} author="SuratOtomatis.id">
+    <Document title={`Beda Nama - ${nama || 'Draft'}`} author="Suratin.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERNYATAAN BEDA NAMA" />
