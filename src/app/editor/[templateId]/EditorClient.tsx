@@ -181,41 +181,40 @@ export default function EditorClient({ template }: EditorClientProps) {
         ))}
       </div>
 
+      {/* ── Scoped responsive styles ─────────────────────────────────────── */}
+      <style>{`
+        .editor-split   { flex: 1; display: flex; overflow: hidden; min-height: 0; }
+        .editor-panel-form {
+          width: 420px; min-width: 380px; flex-shrink: 0;
+          display: flex; flex-direction: column; overflow: hidden;
+          background: ${C.white}; border-right: 1px solid ${C.border};
+        }
+        .editor-panel-preview {
+          flex: 1; overflow-y: auto; min-width: 0;
+          display: flex; flex-direction: column; align-items: center;
+          padding: 32px 16px 48px;
+          background: ${C.dust};
+        }
+        /* Mobile: only show the active tab panel */
+        @media (max-width: 767px) {
+          .editor-panel-form    { width: 100%; min-width: 0; border-right: none; }
+          .editor-panel-form.mobile-hidden    { display: none; }
+          .editor-panel-preview.mobile-hidden { display: none; }
+        }
+      `}</style>
+
       {/* ══ MAIN SPLIT ══════════════════════════════════════════════════════ */}
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden', minHeight: 0 }}>
+      <div className="editor-split">
 
         {/* ─── LEFT: FORM PANEL ─────────────────────────────────────────── */}
-        <div style={{
-          width: '420px', minWidth: '380px', flexShrink: 0,
-          display: activeTab === 'preview' ? 'none' : 'flex',
-          flexDirection: 'column', overflow: 'hidden',
-          background: C.white, borderRight: `1px solid ${C.border}`,
-        }}
-          className="md-always-flex"
-        >
-          <style>{`
-            @media (min-width: 768px) {
-              .md-always-flex { display: flex !important; }
-              .md-hidden { display: none !important; }
-            }
-          `}</style>
-
+        <div className={`editor-panel-form${activeTab === 'preview' ? ' mobile-hidden' : ''}`}>
           <div style={{ flex: 1, overflowY: 'auto', paddingBottom: '80px' }}>
             <DynamicForm template={template} onFormChange={handleFormChange} />
           </div>
         </div>
 
         {/* ─── RIGHT: PREVIEW PANEL ────────────────────────────────────── */}
-        <div
-          style={{
-            flex: 1, overflowY: 'auto', minWidth: 0,
-            display: activeTab === 'form' ? 'none' : 'flex',
-            flexDirection: 'column', alignItems: 'center',
-            padding: '32px 16px 48px',
-            background: C.dust,
-          }}
-          className="md-always-flex"
-        >
+        <div className={`editor-panel-preview${activeTab === 'form' ? ' mobile-hidden' : ''}`}>
           <A4Preview template={template} formData={formData} />
         </div>
       </div>

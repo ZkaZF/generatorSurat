@@ -15,6 +15,9 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
   const hasSignature = useRef(false);
   const lastPos = useRef({ x: 0, y: 0 });
 
+  // ── Undo history: array of ImageData snapshots (one per completed stroke) ──
+  const undoStack = useRef<ImageData[]>([]);
+
   // ── Setup canvas context ────────────────────────────────────────────────
   const getCtx = useCallback(() => {
     const canvas = canvasRef.current;
@@ -39,6 +42,8 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0);
       hasSignature.current = true;
+      // Save initial state as the first undo point
+      undoStack.current = [ctx.getImageData(0, 0, canvas.width, canvas.height)];
     };
     img.src = value;
   }, []); // Only on mount
@@ -50,6 +55,44 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
     onChange(canvas.toDataURL('image/png'));
   }, [onChange]);
 
+  // ── Save snapshot to undo stack ──────────────────────────────────────────
+  const saveSnapshot = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
+    if (!canvas || !ctx) return;
+    undoStack.current = [
+      ...undoStack.current,
+      ctx.getImageData(0, 0, canvas.width, canvas.height),
+    ];
+  }, []);
+
+  // ── Undo last stroke ─────────────────────────────────────────────────────
+  const handleUndo = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
+    if (!canvas || !ctx) return;
+
+    const stack = undoStack.current;
+    if (stack.length === 0) return;
+
+    // Pop the latest snapshot
+    const newStack = stack.slice(0, -1);
+    undoStack.current = newStack;
+
+    if (newStack.length === 0) {
+      // Nothing left → clear canvas entirely
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hasSignature.current = false;
+      onChange(undefined);
+    } else {
+      // Restore previous snapshot
+      const prev = newStack[newStack.length - 1];
+      ctx.putImageData(prev, 0, 0);
+      hasSignature.current = true;
+      onChange(canvas.toDataURL('image/png'));
+    }
+  }, [onChange]);
+
   // ── Clear ────────────────────────────────────────────────────────────────
   const handleClear = useCallback(() => {
     const canvas = canvasRef.current;
@@ -57,6 +100,7 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
     if (!canvas || !ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     hasSignature.current = false;
+    undoStack.current = [];
     onChange(undefined);
   }, [getCtx, onChange]);
 
@@ -104,8 +148,13 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
     e.preventDefault();
     if (!isDrawing.current) return;
     isDrawing.current = false;
+    // Save snapshot after each complete stroke for undo
+    saveSnapshot();
     exportSignature();
   };
+
+  const canUndo = undoStack.current.length > 0;
+  const canClear = !!value;
 
   return (
     <div className="flex flex-col gap-2">
@@ -114,14 +163,55 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
         <label htmlFor={id} className="text-xs font-semibold text-[#5f5f5d]">
           {label}
         </label>
-        <button
-          type="button"
-          onClick={handleClear}
-          className="text-xs font-medium text-[#5f5f5d] hover:text-[#1a1a17] transition-colors"
-          aria-label="Hapus tanda tangan"
-        >
-          Hapus
-        </button>
+
+        {/* Action buttons */}
+        <div className="flex items-center gap-3">
+          {/* Undo button */}
+          <button
+            type="button"
+            onClick={handleUndo}
+            disabled={!canUndo}
+            className="flex items-center gap-1 text-xs font-medium text-[#5f5f5d] hover:text-[#1a1a17] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            aria-label="Undo stroke tanda tangan"
+            title="Undo"
+          >
+            {/* Undo icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 14 4 9l5-5" />
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" />
+            </svg>
+            Undo
+          </button>
+
+          {/* Divider */}
+          {canClear && canUndo && (
+            <span className="text-[#5f5f5d] opacity-30 select-none">·</span>
+          )}
+
+          {/* Clear button */}
+          {canClear && (
+            <button
+              type="button"
+              onClick={handleClear}
+              className="text-xs font-medium text-[#5f5f5d] hover:text-[#e53e3e] transition-colors"
+              aria-label="Hapus tanda tangan"
+              title="Hapus semua"
+            >
+              Hapus
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Canvas area */}

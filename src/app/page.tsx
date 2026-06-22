@@ -6,6 +6,7 @@ import { getAllTemplates, getTemplatesByCategory, searchTemplates } from '@/lib/
 import type { TemplateCategory } from '@/lib/templates/types';
 import { isFreeTemplate } from '@/lib/templates/types';
 import { formatRupiah } from '@/lib/utils';
+import Footer from '@/components/layout/Footer';
 
 // ── Category config ─────────────────────────────────────────────────────────
 const CATEGORIES: { id: TemplateCategory | 'semua'; label: string; icon: string }[] = [
@@ -81,8 +82,11 @@ export default function HomePage() {
           {/* Nav links + CTA */}
           <div className="hidden md:flex" style={{ alignItems: 'center', gap: '40px' }}>
             <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-              {['Tentang', 'Bantuan'].map((item) => (
-                <a key={item} href="#" style={{
+              {[
+                { label: 'Tentang', href: '/tentang' },
+                { label: 'Bantuan', href: '/bantuan' },
+              ].map((item) => (
+                <Link key={item.label} href={item.href} style={{
                   fontSize: '15px', fontWeight: 400, color: C.slate,
                   textDecoration: 'none', letterSpacing: '0.45px',
                   transition: 'color .15s',
@@ -90,8 +94,8 @@ export default function HomePage() {
                   onMouseEnter={e => (e.currentTarget.style.color = C.charcoal)}
                   onMouseLeave={e => (e.currentTarget.style.color = C.slate)}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </nav>
             <Link
@@ -512,34 +516,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* ══════════ FOOTER ══════════ */}
-      <footer style={{ background: C.charcoal, borderTop: `1px solid rgba(255,255,255,0.06)` }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '48px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '28px', height: '28px', background: C.white, borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span className="material-symbols-outlined icon-fill" style={{ fontSize: '14px', color: C.charcoal }}>description</span>
-            </div>
-            <span style={{ ...serif, fontSize: '16px', color: C.white, letterSpacing: '-0.26px' }}>Suratin</span>
-          </div>
-
-          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.40)', letterSpacing: '0.42px' }}>© 2025 Suratin. Generator surat resmi otomatis.</p>
-
-          <div style={{ display: 'flex', gap: '24px' }}>
-            {['Privasi', 'Syarat', 'Kontak'].map((link) => (
-              <a key={link} href="#" style={{
-                fontSize: '13px', color: 'rgba(255,255,255,0.40)', textDecoration: 'none',
-                letterSpacing: '0.42px', transition: 'color .15s',
-              }}
-                onMouseEnter={e => (e.currentTarget.style.color = C.white)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.40)')}
-              >
-                {link}
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
