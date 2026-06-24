@@ -63,8 +63,6 @@ export default function NotFound() {
             transition: 'background .15s',
             letterSpacing: '0.42px', width: '100%'
           }}
-          onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
-          onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
           >
             <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
             Kembali ke Beranda
