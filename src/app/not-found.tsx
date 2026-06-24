@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Halaman Tidak Ditemukan — Suratin',
+  title: 'Halaman Tidak Ditemukan — Suratin Dong',
   description: 'Maaf, halaman yang Anda tuju tidak tersedia.',
 };
 
@@ -36,7 +36,7 @@ export default function NotFound() {
           }}>
             <span className="material-symbols-outlined icon-fill" style={{ fontSize: '14px', color: C.white }}>description</span>
           </div>
-          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, fontWeight: 500, letterSpacing: '-0.4px' }}>Suratin</span>
+          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, fontWeight: 500, letterSpacing: '-0.4px' }}>Suratin Dong</span>
         </Link>
       </header>
 

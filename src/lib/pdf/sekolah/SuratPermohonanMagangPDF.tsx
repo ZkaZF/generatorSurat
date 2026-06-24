@@ -13,7 +13,7 @@ export function SuratPermohonanMagangPDF({ formData, withWatermark = true }: Pro
   } = formData;
 
   return (
-    <Document title={`Surat Permohonan Magang - ${namaMahasiswa || 'Draft'}`} author="Suratin.id">
+    <Document title={`Surat Permohonan Magang - ${namaMahasiswa || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
 

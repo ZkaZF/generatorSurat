@@ -39,7 +39,7 @@ export default function Header({ variant = 'home' }: HeaderProps) {
         fontSize: '18px', fontWeight: 400, color: '#1B2E4A',
         textDecoration: 'none', letterSpacing: '-0.2px',
       }}>
-        Suratin
+        Suratin Dong
       </Link>
 
       {/* Right icon */}

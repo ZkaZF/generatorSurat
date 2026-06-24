@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratCutiAkademikPDF({ formData, withWatermark = true }: Props) {
   const { namaMahasiswa, nim, jurusan, semester, namaKampus, semesterCuti, alasanCuti, kotaSurat, tanggalSurat, tandaTangan } = formData;
   return (
-    <Document title={`Cuti Akademik - ${namaMahasiswa || 'Draft'}`} author="Suratin.id">
+    <Document title={`Cuti Akademik - ${namaMahasiswa || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <Text style={[styles.rightAlign, { marginBottom: 10 }]}>{orDash(kotaSurat as string)}, {tanggalSurat ? formatTanggalIndonesia(tanggalSurat as string) : '___'}</Text>

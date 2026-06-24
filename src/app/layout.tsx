@@ -18,15 +18,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Suratin — Buat Surat Resmi dalam 2 Menit',
+  title: 'Suratin Dong — Buat Surat Resmi dalam 2 Menit',
   description:
     'Generator surat resmi otomatis berbahasa Indonesia. Buat Surat Kuasa, Surat Izin, Surat Perjanjian, dan lainnya dalam format PDF siap cetak hanya dengan mengisi form singkat.',
   openGraph: {
-    title: 'Suratin — Buat Surat Resmi dalam 2 Menit',
+    title: 'Suratin Dong — Buat Surat Resmi dalam 2 Menit',
     description: 'Generator surat resmi PDF instan untuk kebutuhan pekerjaan, bisnis, dan pemerintahan.',
     type: 'website',
   },
-  authors: [{ name: 'Suratin' }],
+  authors: [{ name: 'Suratin Dong' }],
 };
 
 export default function RootLayout({

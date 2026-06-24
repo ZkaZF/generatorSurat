@@ -68,13 +68,13 @@ export const SigDual = ({ label1, name1, src1, label2, name2, src2 }: {
 
 export const Watermark = () => (
   <View style={styles.watermarkContainer} fixed>
-    <Text style={styles.watermarkText}>Suratin.id</Text>
+    <Text style={styles.watermarkText}>Suratin Dong.id</Text>
   </View>
 );
 
 export const Footer = () => (
   <Text style={styles.footer} fixed>
-    Dibuat oleh Suratin.id — Dokumen ini merupakan salinan yang sah
+    Dibuat oleh Suratin Dong.id — Dokumen ini merupakan salinan yang sah
   </Text>
 );
 

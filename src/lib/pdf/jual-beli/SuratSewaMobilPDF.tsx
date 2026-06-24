@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratSewaMobilPDF({ formData, withWatermark = true }: Props) {
   const { namaPemilikRental, namaPenyewa, nikPenyewa, merkTipe, nomorPolisi, tanggalMulaiSewa, tanggalSelesaiSewa, tarifSewaPerHari, dendaKeterlambatan, tanggungJawabKerusakan, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`Rental Mobil - ${namaPenyewa || 'Draft'}`} author="Suratin.id">
+    <Document title={`Rental Mobil - ${namaPenyewa || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT KONTRAK SEWA / RENTAL MOBIL" />

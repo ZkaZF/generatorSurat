@@ -408,6 +408,51 @@
   .toc-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* Bantuan hero & kontak grids collapse to single column on mobile */
+  .bantuan-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .bantuan-kontak-grid {
+    grid-template-columns: 1fr !important;
+    border-right: 1px solid rgba(26,26,23,0.10) !important;
+  }
+
+  /* Fix kontak cards border on mobile — override inline style */
+  .bantuan-kontak-card {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(26,26,23,0.10) !important;
+    padding: 28px 20px !important;
+  }
+
+  /* ── Tentang page grids → collapse on mobile ── */
+  .tentang-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    border-left: 1px solid rgba(26,26,23,0.10) !important;
+  }
+
+  .tentang-misi-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .tentang-values-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tentang-tim-grid {
+    grid-template-columns: 1fr !important;
+    border-right: 1px solid rgba(26,26,23,0.10) !important;
+  }
+
+  /* Fix tim cards border on mobile */
+  .tentang-tim-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(26,26,23,0.10) !important;
+  }
+
   /* Sidebar jadi pill tab strip horizontal di HP */
   .toc-sidebar {
     position: static !important;

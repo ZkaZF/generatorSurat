@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratPernyataanKehilanganPDF({ formData, withWatermark = true }: Props) {
   const { nama, nik, alamat, dokumenHilang, nomorDokumen, tempatHilang, tujuanSurat, kotaSurat, tanggalSurat, tandaTangan } = formData;
   return (
-    <Document title={`Pernyataan Kehilangan - ${nama || 'Draft'}`} author="Suratin.id">
+    <Document title={`Pernyataan Kehilangan - ${nama || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERNYATAAN KEHILANGAN" />

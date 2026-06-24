@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratPermohonanCutiPDF({ formData, withWatermark = true }: Props) {
   const { namaKaryawan, nikKaryawan, jabatanKaryawan, divisiKaryawan, jenisCuti, tanggalMulaiCuti, tanggalSelesaiCuti, jumlahHari, alasanCuti, namaBackupKaryawan, kotaSurat, tanggalSurat, tandaTangan } = formData;
   return (
-    <Document title={`Cuti - ${namaKaryawan || 'Draft'}`} author="Suratin.id">
+    <Document title={`Cuti - ${namaKaryawan || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERMOHONAN CUTI KARYAWAN" />

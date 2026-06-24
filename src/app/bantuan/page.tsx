@@ -35,7 +35,7 @@ function Navbar() {
           <div style={{ width: '32px', height: '32px', background: C.charcoal, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
           </div>
-          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin</span>
+          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin Dong</span>
         </Link>
 
         <div className="hidden md:flex" style={{ alignItems: 'center', gap: '40px' }}>
@@ -87,16 +87,16 @@ const FAQ_ITEMS = [
     icon: 'info',
     questions: [
       {
-        q: 'Apakah Suratin benar-benar gratis?',
-        a: 'Ya, 100% gratis. Semua template yang tersedia di Suratin bisa digunakan tanpa biaya apapun — tanpa registrasi, tanpa berlangganan, dan tanpa watermark pada hasil PDF.',
+        q: 'Apakah Suratin Dong benar-benar gratis?',
+        a: 'Ya, 100% gratis. Semua template yang tersedia di Suratin Dong bisa digunakan tanpa biaya apapun — tanpa registrasi, tanpa berlangganan, dan tanpa watermark pada hasil PDF.',
       },
       {
-        q: 'Apakah saya perlu membuat akun untuk menggunakan Suratin?',
-        a: 'Tidak perlu. Suratin dirancang agar bisa langsung digunakan tanpa proses registrasi atau login. Buka website, pilih template, isi form, dan unduh PDF.',
+        q: 'Apakah saya perlu membuat akun untuk menggunakan Suratin Dong?',
+        a: 'Tidak perlu. Suratin Dong dirancang agar bisa langsung digunakan tanpa proses registrasi atau login. Buka website, pilih template, isi form, dan unduh PDF.',
       },
       {
-        q: 'Apakah Suratin bisa digunakan di HP (smartphone)?',
-        a: 'Ya. Suratin dioptimalkan untuk tampil dengan baik di semua ukuran layar, termasuk smartphone Android dan iPhone. Anda bahkan bisa menambahkan tanda tangan langsung dengan jari di layar sentuh.',
+        q: 'Apakah Suratin Dong bisa digunakan di HP (smartphone)?',
+        a: 'Ya. Suratin Dong dioptimalkan untuk tampil dengan baik di semua ukuran layar, termasuk smartphone Android dan iPhone. Anda bahkan bisa menambahkan tanda tangan langsung dengan jari di layar sentuh.',
       },
     ],
   },
@@ -113,8 +113,8 @@ const FAQ_ITEMS = [
         a: 'Tidak. Tanda tangan yang Anda buat hanya ada di browser Anda dan langsung disematkan ke dokumen PDF yang Anda unduh. Kami tidak menyimpan gambar tanda tangan Anda di mana pun.',
       },
       {
-        q: 'Apakah Suratin menggunakan cookies atau pelacak?',
-        a: 'Suratin menggunakan analytics anonimis minimal (hanya data pengunjung secara agregat, bukan data pribadi) untuk membantu kami memahami template apa yang paling dibutuhkan. Tidak ada profiling pengguna.',
+        q: 'Apakah Suratin Dong menggunakan cookies atau pelacak?',
+        a: 'Suratin Dong menggunakan analytics anonimis minimal (hanya data pengunjung secara agregat, bukan data pribadi) untuk membantu kami memahami template apa yang paling dibutuhkan. Tidak ada profiling pengguna.',
       },
     ],
   },
@@ -136,7 +136,7 @@ const FAQ_ITEMS = [
       },
       {
         q: 'Format file apa yang bisa diunduh?',
-        a: 'Saat ini Suratin menghasilkan file dalam format PDF ukuran A4, yang merupakan standar untuk surat resmi dan siap dicetak langsung.',
+        a: 'Saat ini Suratin Dong menghasilkan file dalam format PDF ukuran A4, yang merupakan standar untuk surat resmi dan siap dicetak langsung.',
       },
     ],
   },
@@ -150,11 +150,11 @@ const FAQ_ITEMS = [
       },
       {
         q: 'Apakah ada watermark pada PDF yang diunduh?',
-        a: 'Tidak ada. PDF yang Anda unduh bersih tanpa watermark, logo, atau tanda apapun dari Suratin. Dokumen terlihat profesional seperti dibuat dari awal.',
+        a: 'Tidak ada. PDF yang Anda unduh bersih tanpa watermark, logo, atau tanda apapun dari Suratin Dong. Dokumen terlihat profesional seperti dibuat dari awal.',
       },
       {
-        q: 'Apakah surat dari Suratin sah secara hukum?',
-        a: 'Suratin menghasilkan dokumen dengan format yang benar secara administratif. Keabsahan hukum sebuah surat bergantung pada kebenaran isi, tanda tangan pihak berwenang, dan stempel instansi — yang merupakan tanggung jawab pengguna, bukan tools pembuat formatnya.',
+        q: 'Apakah surat dari Suratin Dong sah secara hukum?',
+        a: 'Suratin Dong menghasilkan dokumen dengan format yang benar secara administratif. Keabsahan hukum sebuah surat bergantung pada kebenaran isi, tanda tangan pihak berwenang, dan stempel instansi — yang merupakan tanggung jawab pengguna, bukan tools pembuat formatnya.',
       },
     ],
   },
@@ -242,7 +242,7 @@ function BantuanPageInner() {
           <span style={{ fontSize: '13px', color: C.charcoal, fontWeight: 500, letterSpacing: '0.42px' }}>Bantuan</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <div className="bantuan-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
           <div>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -270,7 +270,7 @@ function BantuanPageInner() {
               lineHeight: 1.7, letterSpacing: '0.48px',
               maxWidth: '480px', marginBottom: '32px',
             }}>
-              Temukan jawaban dari pertanyaan yang paling sering ditanyakan seputar penggunaan Suratin, keamanan data, dan hasil dokumen PDF.
+              Temukan jawaban dari pertanyaan yang paling sering ditanyakan seputar penggunaan Suratin Dong, keamanan data, dan hasil dokumen PDF.
             </p>
 
             <a
@@ -422,7 +422,7 @@ function BantuanPageInner() {
 
       {/* ══════════ KONTAK ══════════ */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0', border: `1px solid ${C.border}`, borderRight: 'none' }}>
+        <div className="bantuan-kontak-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0', border: `1px solid ${C.border}`, borderRight: 'none' }}>
           {[
             {
               icon: 'mail',
@@ -452,7 +452,7 @@ function BantuanPageInner() {
               id: 'bantuan-laporkan-bug',
             },
           ].map((card) => (
-            <div key={card.title} style={{
+            <div key={card.title} className="bantuan-kontak-card" style={{
               padding: '40px 32px',
               borderRight: `1px solid ${C.border}`,
               display: 'flex', flexDirection: 'column', gap: '16px',

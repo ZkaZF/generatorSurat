@@ -88,7 +88,7 @@ function HomePageInner() {
               <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
             </div>
             <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>
-              Suratin
+              Suratin Dong
             </span>
           </Link>
 
@@ -233,7 +233,7 @@ function HomePageInner() {
                   <span className="material-symbols-outlined icon-fill" style={{ fontSize: '14px', color: C.charcoal }}>description</span>
                 </div>
                 <div>
-                  <div style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1.2px' }}>Suratin</div>
+                  <div style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '1.2px' }}>Suratin Dong</div>
                   <div style={{ fontSize: '10px', color: C.white, fontWeight: 600, letterSpacing: '0.5px' }}>SURAT KETERANGAN</div>
                 </div>
               </div>

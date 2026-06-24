@@ -32,12 +32,12 @@ export function SuratIzinSakitPDF({ formData, withWatermark = true }: Props) {
   };
 
   return (
-    <Document title={`Surat Izin Sakit - ${namaKaryawan || 'Draft'}`} author="Suratin.id">
+    <Document title={`Surat Izin Sakit - ${namaKaryawan || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {/* Watermark */}
         {withWatermark && (
           <View style={styles.watermarkContainer} fixed>
-            <Text style={styles.watermarkText}>Suratin.id</Text>
+            <Text style={styles.watermarkText}>Suratin Dong.id</Text>
           </View>
         )}
 
@@ -104,7 +104,7 @@ export function SuratIzinSakitPDF({ formData, withWatermark = true }: Props) {
         {/* Footer watermark */}
         {withWatermark && (
           <Text style={styles.footer} fixed>
-            Dibuat oleh Suratin.id — Dokumen ini merupakan salinan yang sah
+            Dibuat oleh Suratin Dong.id — Dokumen ini merupakan salinan yang sah
           </Text>
         )}
       </Page>

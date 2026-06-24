@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratFreelancePDF({ formData, withWatermark = true }: Props) {
   const { namaKlien, namaFreelancer, alamatFreelancer, namaProject, hargaJasaTotal, uangMuka, sisaPelunasan, jumlahRevisi, batasWaktuProject, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`Kontrak Freelance - ${namaFreelancer || 'Draft'}`} author="Suratin.id">
+    <Document title={`Kontrak Freelance - ${namaFreelancer || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT KONTRAK KERJA SAMA JASA (FREELANCE)" />

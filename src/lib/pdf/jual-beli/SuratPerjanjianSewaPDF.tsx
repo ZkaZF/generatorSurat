@@ -9,7 +9,7 @@ export function SuratPerjanjianSewaPDF({ formData, withWatermark = true }: Props
   const { namaPemilik, nikPemilik, alamatPemilik, namaPenyewa, nikPenyewa, alamatPenyewa, alamatProperti, jenisProperti, hargaSewa, periodeSewa, tanggalMulaiSewa, tanggalAkhirSewa, uangDeposit, kotaSurat, tanggalSurat, tandaTanganPemberi, tandaTanganPenerima } = formData;
   const dateStr = `${orDash(kotaSurat as string)}, ${tanggalSurat ? formatTanggalIndonesia(tanggalSurat as string) : '___'}`;
   return (
-    <Document title="Surat Perjanjian Sewa Menyewa" author="Suratin.id">
+    <Document title="Surat Perjanjian Sewa Menyewa" author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERJANJIAN SEWA MENYEWA" />

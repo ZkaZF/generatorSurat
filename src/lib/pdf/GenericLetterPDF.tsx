@@ -93,11 +93,11 @@ export function GenericLetterPDF({ formData, withWatermark = true, title, subtit
   }
 
   return (
-    <Document title={title} author="Suratin.id">
+    <Document title={title} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && (
           <View style={styles.watermarkContainer} fixed>
-            <Text style={styles.watermarkText}>Suratin.id</Text>
+            <Text style={styles.watermarkText}>Suratin Dong.id</Text>
           </View>
         )}
 
@@ -180,7 +180,7 @@ export function GenericLetterPDF({ formData, withWatermark = true, title, subtit
 
         {withWatermark && (
           <Text style={styles.footer} fixed>
-            Dibuat oleh Suratin.id — Dokumen ini merupakan salinan yang sah
+            Dibuat oleh Suratin Dong.id — Dokumen ini merupakan salinan yang sah
           </Text>
         )}
       </Page>

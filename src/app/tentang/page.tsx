@@ -34,7 +34,7 @@ function Navbar() {
           <div style={{ width: '32px', height: '32px', background: C.charcoal, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
           </div>
-          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin</span>
+          <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin Dong</span>
         </Link>
 
         <div className="hidden md:flex" style={{ alignItems: 'center', gap: '40px' }}>
@@ -113,10 +113,10 @@ export default function TentangPage() {
 
   const team = [
     {
-      name: 'Pengembang Utama',
+      name: 'Azka Wayasy A.H.',
       role: 'Frontend & Template Design',
       icon: 'code',
-      desc: 'Merancang dan membangun antarmuka, sistem template, dan pengalaman pengguna Suratin.',
+      desc: 'Merancang dan membangun antarmuka, sistem template, dan pengalaman pengguna Suratin Dong.',
     },
     {
       name: 'Tim Hukum & Bahasa',
@@ -156,7 +156,7 @@ export default function TentangPage() {
             fontSize: '12px', fontWeight: 500, color: C.slate, letterSpacing: '0.42px',
           }}>
             <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>info</span>
-            Tentang Suratin
+            Tentang Suratin Dong
           </div>
 
           <h1 style={{
@@ -177,7 +177,7 @@ export default function TentangPage() {
             lineHeight: 1.7, letterSpacing: '0.48px',
             maxWidth: '560px',
           }}>
-            Suratin lahir dari satu keresahan sederhana: mengapa membuat surat resmi di Indonesia masih harus ribet?
+            Suratin Dong lahir dari satu keresahan sederhana: mengapa membuat surat resmi di Indonesia masih harus ribet?
             Template yang susah dicari, format yang tidak konsisten, dan risiko kesalahan penulisan.
             Kami hadir untuk mengubah itu.
           </p>
@@ -187,7 +187,7 @@ export default function TentangPage() {
       {/* ══════════ DIVIDER + STATS ══════════ */}
       <div style={{ borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderLeft: `1px solid ${C.border}` }}>
+          <div className="tentang-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderLeft: `1px solid ${C.border}` }}>
             {stats.map((s) => (
               <div key={s.label} style={{
                 padding: '40px 32px',
@@ -205,7 +205,7 @@ export default function TentangPage() {
       {/* ══════════ MISI ══════════ */}
       <section style={{ background: C.dustFaint, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+          <div className="tentang-misi-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
             <div>
               <span style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>Misi Kami</span>
               <h2 style={{ ...serif, fontSize: '48px', lineHeight: 1.1, letterSpacing: '-0.48px', color: C.charcoal, marginBottom: '24px' }}>
@@ -238,11 +238,11 @@ export default function TentangPage() {
         <div style={{ marginBottom: '48px' }}>
           <span style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>Keunggulan</span>
           <h2 style={{ ...serif, fontSize: '48px', lineHeight: 1.1, letterSpacing: '-0.48px', color: C.charcoal }}>
-            Kenapa Suratin?
+            Kenapa Suratin Dong?
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', border: `1px solid ${C.border}`, borderBottom: 'none', borderRight: 'none' }}>
+        <div className="tentang-values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', border: `1px solid ${C.border}`, borderBottom: 'none', borderRight: 'none' }}>
           {values.map((v, idx) => (
             <div key={v.title} style={{
               padding: '40px 32px',
@@ -272,13 +272,13 @@ export default function TentangPage() {
       <section style={{ background: C.dustFaint, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
           <div style={{ marginBottom: '48px' }}>
-            <span style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>Dibalik Suratin</span>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px', display: 'block' }}>Dibalik Suratin Dong</span>
             <h2 style={{ ...serif, fontSize: '48px', lineHeight: 1.1, letterSpacing: '-0.48px', color: C.charcoal }}>
               Tim kami
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0', border: `1px solid ${C.border}`, borderRight: 'none' }}>
+          <div className="tentang-tim-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0', border: `1px solid ${C.border}`, borderRight: 'none' }}>
             {team.map((t) => (
               <div key={t.name} style={{
                 padding: '40px 32px',

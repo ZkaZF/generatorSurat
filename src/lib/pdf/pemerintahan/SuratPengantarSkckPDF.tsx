@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratPengantarSKCKPDF({ formData, withWatermark = true }: Props) {
   const { nama, nik, tempatLahir, tanggalLahir, agama, pekerjaan, alamat, keperluan, rtRw, kotaSurat, tanggalSurat, namaKetuaRT, tandaTangan } = formData;
   return (
-    <Document title={`SKCK - ${nama || 'Draft'}`} author="Suratin.id">
+    <Document title={`SKCK - ${nama || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PENGANTAR RT/RW (PEMBUATAN SKCK)" />

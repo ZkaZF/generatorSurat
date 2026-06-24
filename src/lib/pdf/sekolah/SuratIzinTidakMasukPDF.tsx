@@ -9,7 +9,7 @@ export function SuratIzinTidakMasukPDF({ formData, withWatermark = true }: Props
   const { namaPembuat, hubungan, namaSiswa, kelasJurusan, namaInstitusi, tanggalMulai, tanggalSelesai, alasan, keterangan, kotaSurat, tanggalSurat, tandaTangan } = formData;
   const isMultiDay = tanggalMulai !== tanggalSelesai;
   return (
-    <Document title={`Surat Izin Tidak Masuk - ${namaSiswa || 'Draft'}`} author="Suratin.id">
+    <Document title={`Surat Izin Tidak Masuk - ${namaSiswa || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <Text style={[styles.rightAlign, { marginBottom: 10 }]}>{orDash(kotaSurat as string)}, {tanggalSurat ? formatTanggalIndonesia(tanggalSurat as string) : '___'}</Text>

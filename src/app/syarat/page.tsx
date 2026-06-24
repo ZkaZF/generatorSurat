@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Syarat & Ketentuan — Suratin',
-  description: 'Syarat dan ketentuan penggunaan layanan Suratin, generator surat resmi otomatis gratis untuk kebutuhan administratif Indonesia.',
+  title: 'Syarat & Ketentuan — Suratin Dong',
+  description: 'Syarat dan ketentuan penggunaan layanan Suratin Dong, generator surat resmi otomatis gratis untuk kebutuhan administratif Indonesia.',
 };
 
 const C = {
@@ -24,14 +24,14 @@ const sections = [
   {
     id: 'penerimaan',
     title: '1. Penerimaan Syarat',
-    content: `Dengan mengakses dan menggunakan layanan Suratin ("Layanan"), Anda menyetujui untuk terikat dengan Syarat dan Ketentuan ini. Jika Anda tidak menyetujui salah satu ketentuan ini, Anda tidak diperbolehkan menggunakan Layanan kami.
+    content: `Dengan mengakses dan menggunakan layanan Suratin Dong ("Layanan"), Anda menyetujui untuk terikat dengan Syarat dan Ketentuan ini. Jika Anda tidak menyetujui salah satu ketentuan ini, Anda tidak diperbolehkan menggunakan Layanan kami.
 
 Syarat ini berlaku untuk semua pengunjung, pengguna, dan pihak lain yang mengakses atau menggunakan Layanan.`,
   },
   {
     id: 'deskripsi-layanan',
     title: '2. Deskripsi Layanan',
-    content: `Suratin adalah generator surat resmi otomatis berbasis web yang memungkinkan pengguna untuk:
+    content: `Suratin Dong adalah generator surat resmi otomatis berbasis web yang memungkinkan pengguna untuk:
 
 - Membuat berbagai jenis surat resmi menggunakan template yang tersedia
 - Mengisi formulir data yang diperlukan untuk surat tersebut
@@ -43,13 +43,13 @@ Layanan ini disediakan secara gratis tanpa memerlukan registrasi akun. Semua pem
   {
     id: 'penggunaan-yang-diizinkan',
     title: '3. Penggunaan yang Diizinkan',
-    content: `Anda diizinkan menggunakan Suratin untuk:
+    content: `Anda diizinkan menggunakan Suratin Dong untuk:
 
 - Membuat surat resmi untuk keperluan pribadi, profesional, atau bisnis yang sah
 - Menghasilkan dokumen administratif yang diperlukan untuk interaksi dengan instansi pemerintah, perusahaan, atau lembaga pendidikan
 - Berbagi template yang tersedia dengan orang lain
 
-Anda **dilarang** menggunakan Suratin untuk:
+Anda **dilarang** menggunakan Suratin Dong untuk:
 
 - Membuat dokumen palsu atau memalsukan identitas
 - Menghasilkan dokumen yang dimaksudkan untuk menipu, memeras, atau merugikan pihak lain
@@ -59,20 +59,20 @@ Anda **dilarang** menggunakan Suratin untuk:
   {
     id: 'kekayaan-intelektual',
     title: '4. Kekayaan Intelektual',
-    content: `**Hak Cipta Suratin:**
-Seluruh konten Layanan ini, termasuk desain, kode sumber, teks, grafik, dan template surat, adalah hak milik Suratin dan dilindungi oleh undang-undang hak cipta Indonesia.
+    content: `**Hak Cipta Suratin Dong:**
+Seluruh konten Layanan ini, termasuk desain, kode sumber, teks, grafik, dan template surat, adalah hak milik Suratin Dong dan dilindungi oleh undang-undang hak cipta Indonesia.
 
 **Hak Anda:**
-Anda mempertahankan semua hak atas konten yang Anda buat menggunakan Layanan. Suratin tidak mengklaim kepemilikan atas dokumen yang Anda hasilkan.
+Anda mempertahankan semua hak atas konten yang Anda buat menggunakan Layanan. Suratin Dong tidak mengklaim kepemilikan atas dokumen yang Anda hasilkan.
 
 **Penggunaan Template:**
-Template surat yang tersedia di Suratin dapat digunakan secara bebas untuk keperluan pribadi dan profesional. Anda tidak diperbolehkan menjual kembali atau mendistribusikan template tersebut sebagai produk komersial.`,
+Template surat yang tersedia di Suratin Dong dapat digunakan secara bebas untuk keperluan pribadi dan profesional. Anda tidak diperbolehkan menjual kembali atau mendistribusikan template tersebut sebagai produk komersial.`,
   },
   {
     id: 'penafian',
     title: '5. Penafian dan Batasan Tanggung Jawab',
     content: `**Tidak Ada Jaminan Hukum:**
-Suratin menghasilkan dokumen dengan format yang secara administratif umum diterima, namun **tidak memberikan jaminan hukum atas keabsahan** dokumen yang dihasilkan. Keabsahan hukum sebuah dokumen bergantung pada:
+Suratin Dong menghasilkan dokumen dengan format yang secara administratif umum diterima, namun **tidak memberikan jaminan hukum atas keabsahan** dokumen yang dihasilkan. Keabsahan hukum sebuah dokumen bergantung pada:
 - Kebenaran isi yang dimasukkan pengguna
 - Tanda tangan pihak yang berwenang
 - Stempel atau cap resmi instansi terkait
@@ -82,7 +82,7 @@ Suratin menghasilkan dokumen dengan format yang secara administratif umum diteri
 Untuk dokumen yang memiliki konsekuensi hukum signifikan, kami sangat menyarankan untuk berkonsultasi dengan notaris, pengacara, atau profesional hukum yang berwenang.
 
 **Batasan Tanggung Jawab:**
-Sejauh diizinkan oleh hukum yang berlaku, Suratin tidak bertanggung jawab atas kerugian langsung, tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan atau ketidakmampuan menggunakan Layanan.`,
+Sejauh diizinkan oleh hukum yang berlaku, Suratin Dong tidak bertanggung jawab atas kerugian langsung, tidak langsung, insidental, atau konsekuensial yang timbul dari penggunaan atau ketidakmampuan menggunakan Layanan.`,
   },
   {
     id: 'perubahan-layanan',
@@ -136,7 +136,7 @@ export default function SyaratPage() {
             <div style={{ width: '32px', height: '32px', background: C.charcoal, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
             </div>
-            <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin</span>
+            <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin Dong</span>
           </Link>
           <Link href="/" style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -170,7 +170,7 @@ export default function SyaratPage() {
           Syarat &amp; Ketentuan
         </h1>
         <p style={{ fontSize: '16px', color: C.slate, lineHeight: 1.7, letterSpacing: '0.48px', maxWidth: '580px' }}>
-          Harap baca syarat dan ketentuan ini dengan seksama sebelum menggunakan layanan Suratin.
+          Harap baca syarat dan ketentuan ini dengan seksama sebelum menggunakan layanan Suratin Dong.
         </p>
       </section>
 

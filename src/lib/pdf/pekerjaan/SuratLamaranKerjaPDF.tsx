@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratLamaranKerjaPDF({ formData, withWatermark = true }: Props) {
   const { namaPelamar, tempatLahir, tanggalLahir, alamat, noHp, email, pendidikanTerakhir, jurusan, namaPerusahaan, posisiDilamar, sumberInfo, motivasi, kotaSurat, tanggalSurat, tandaTangan } = formData;
   return (
-    <Document title={`Surat Lamaran Kerja - ${namaPelamar || 'Draft'}`} author="Suratin.id">
+    <Document title={`Surat Lamaran Kerja - ${namaPelamar || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <DateLine kotaSurat={kotaSurat as string} tanggalSurat={tanggalSurat as string} />

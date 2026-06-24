@@ -100,7 +100,7 @@ export default function Footer() {
               }}>
                 <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.charcoal }}>description</span>
               </div>
-              <span style={{ ...serif, fontSize: '20px', color: C.white, letterSpacing: '-0.26px' }}>Suratin</span>
+              <span style={{ ...serif, fontSize: '20px', color: C.white, letterSpacing: '-0.26px' }}>Suratin Dong</span>
             </Link>
 
             {/* Tagline */}
@@ -172,7 +172,7 @@ export default function Footer() {
         }}>
           {/* Copyright */}
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.28)', letterSpacing: '0.42px' }}>
-            © {year} Suratin. Dibuat dengan ♡ untuk Indonesia.
+            © {year} Suratin Dong. Dibuat dengan ♡ untuk Indonesia.
           </p>
 
           {/* Legal links */}

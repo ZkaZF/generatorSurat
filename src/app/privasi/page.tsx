@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Kebijakan Privasi — Suratin',
-  description: 'Pelajari bagaimana Suratin melindungi privasi dan data pribadi Anda. Semua data diproses secara lokal di browser Anda.',
+  title: 'Kebijakan Privasi — Suratin Dong',
+  description: 'Pelajari bagaimana Suratin Dong melindungi privasi dan data pribadi Anda. Semua data diproses secara lokal di browser Anda.',
 };
 
 const C = {
@@ -24,7 +24,7 @@ const sections = [
   {
     id: 'informasi-dikumpulkan',
     title: '1. Informasi yang Kami Kumpulkan',
-    content: `Suratin dirancang dengan prinsip privasi sejak awal (privacy by design). Kami secara sengaja meminimalkan pengumpulan data.
+    content: `Suratin Dong dirancang dengan prinsip privasi sejak awal (privacy by design). Kami secara sengaja meminimalkan pengumpulan data.
 
 **Data yang TIDAK kami kumpulkan:**
 - Nama, NIK, alamat, atau informasi pribadi apa pun yang Anda masukkan ke formulir surat
@@ -38,8 +38,8 @@ const sections = [
   },
   {
     id: 'cara-kerja-data',
-    title: '2. Cara Kerja Data di Suratin',
-    content: `Semua data yang Anda masukkan ke Suratin diproses **sepenuhnya di browser Anda sendiri** menggunakan JavaScript sisi klien (client-side). Artinya:
+    title: '2. Cara Kerja Data di Suratin Dong',
+    content: `Semua data yang Anda masukkan ke Suratin Dong diproses **sepenuhnya di browser Anda sendiri** menggunakan JavaScript sisi klien (client-side). Artinya:
 
 - Data formulir surat Anda **tidak pernah dikirim ke server kami**
 - PDF dihasilkan langsung di browser Anda, bukan di server kami
@@ -51,7 +51,7 @@ Arsitektur ini bukan sekadar klaim — ini adalah konsekuensi teknis dari cara k
   {
     id: 'cookies',
     title: '3. Cookies dan Teknologi Pelacak',
-    content: `Suratin menggunakan cookies minimal:
+    content: `Suratin Dong menggunakan cookies minimal:
 
 - **Cookies teknis:** Diperlukan untuk fungsionalitas dasar aplikasi (misalnya, menyimpan preferensi tampilan)
 - **Analytics Anonim:** Kami menggunakan Vercel Analytics yang mengumpulkan data kunjungan secara agregat tanpa mengidentifikasi pengguna individual. Tidak ada cross-site tracking.
@@ -78,7 +78,7 @@ Semua pihak ketiga tersebut dipilih karena rekam jejak privasi mereka yang baik.
     content: `Karena data sensitif Anda tidak pernah meninggalkan browser Anda, risiko kebocoran data dari sisi server diminimalkan secara fundamental.
 
 Untuk keamanan tambahan:
-- Seluruh lalu lintas ke Suratin dienkripsi menggunakan HTTPS (TLS)
+- Seluruh lalu lintas ke Suratin Dong dienkripsi menggunakan HTTPS (TLS)
 - Kami secara rutin memperbarui dependensi untuk menambal kerentanan keamanan
 - Kode sumber kami tersedia untuk diaudit`,
   },
@@ -123,7 +123,7 @@ export default function PrivasiPage() {
             <div style={{ width: '32px', height: '32px', background: C.charcoal, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
             </div>
-            <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin</span>
+            <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>Suratin Dong</span>
           </Link>
           <Link href="/" style={{
             display: 'inline-flex', alignItems: 'center', gap: '6px',
@@ -157,7 +157,7 @@ export default function PrivasiPage() {
           Kebijakan Privasi
         </h1>
         <p style={{ fontSize: '16px', color: C.slate, lineHeight: 1.7, letterSpacing: '0.48px', maxWidth: '580px' }}>
-          Kami membangun Suratin dengan prinsip bahwa data Anda adalah milik Anda. Baca bagaimana kami melindungi privasi Anda.
+          Kami membangun Suratin Dong dengan prinsip bahwa data Anda adalah milik Anda. Baca bagaimana kami melindungi privasi Anda.
         </p>
 
         {/* Privacy highlight */}

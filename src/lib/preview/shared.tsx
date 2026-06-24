@@ -129,6 +129,6 @@ export function SigImg({ src }: { src: string | undefined }) {
 }
 
 export const FOOTER = (
-  <div style={PS.footer}>Dibuat oleh Suratin.id</div>
+  <div style={PS.footer}>Dibuat oleh Suratin Dong.id</div>
 );
 

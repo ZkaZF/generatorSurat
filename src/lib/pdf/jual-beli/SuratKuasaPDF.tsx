@@ -35,11 +35,11 @@ export function SuratKuasaPDF({ formData, withWatermark = false }: Props) {
   };
 
   return (
-    <Document title={`Surat Kuasa - ${namaPemberi || 'Draft'}`} author="Suratin.id">
+    <Document title={`Surat Kuasa - ${namaPemberi || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && (
           <View style={styles.watermarkContainer} fixed>
-            <Text style={styles.watermarkText}>Suratin.id</Text>
+            <Text style={styles.watermarkText}>Suratin Dong.id</Text>
           </View>
         )}
 

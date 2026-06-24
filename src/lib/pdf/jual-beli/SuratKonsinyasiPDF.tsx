@@ -8,7 +8,7 @@ interface Props { formData: FormData; withWatermark?: boolean; }
 export function SuratKonsinyasiPDF({ formData, withWatermark = true }: Props) {
   const { namaPemilikBarang, namaToko, namaPenanggungJawab, namaProduk, hargaJualRekomendasi, persentaseBagiHasil, periodeKonsinyasi, sistemPembayaran, kotaSurat, tanggalSurat, tandaTanganPenjual, tandaTanganPembeli } = formData;
   return (
-    <Document title={`Konsinyasi - ${namaToko || 'Draft'}`} author="Suratin.id">
+    <Document title={`Konsinyasi - ${namaToko || 'Draft'}`} author="Suratin Dong.id">
       <Page size="A4" style={styles.page}>
         {withWatermark && <Watermark />}
         <TitleHeader title="SURAT PERJANJIAN KONSINYASI (TITIP JUAL)" />
