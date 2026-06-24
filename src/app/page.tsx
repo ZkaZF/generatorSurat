@@ -1,7 +1,9 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import ScrollReveal from '@/components/layout/ScrollReveal';
 import { getAllTemplates, getTemplatesByCategory, searchTemplates } from '@/lib/templates/registry';
 import type { TemplateCategory } from '@/lib/templates/types';
 import { isFreeTemplate } from '@/lib/templates/types';
@@ -37,10 +39,21 @@ const serif: React.CSSProperties = {
   fontWeight: 300,
 };
 
-export default function HomePage() {
+function HomePageInner() {
   const [searchQuery, setSearchQuery]       = useState('');
   const [activeCategory, setActiveCategory] = useState<TemplateCategory | 'semua'>('semua');
   const [visibleCount, setVisibleCount]     = useState(ITEMS_PER_LOAD);
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const kategori = searchParams.get('kategori') as TemplateCategory | 'semua' | null;
+    if (kategori && ['pekerjaan', 'jual-beli', 'pemerintahan', 'sekolah', 'semua'].includes(kategori)) {
+      setActiveCategory(kategori);
+      // Scroll ke section templates
+      setTimeout(() => document.getElementById('templates')?.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     setVisibleCount(ITEMS_PER_LOAD);
@@ -126,7 +139,7 @@ export default function HomePage() {
           {/* Left: Copy */}
           <div>
             {/* Badge */}
-            <div style={{
+            <div className="animate-fade-up" style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
               border: `1px solid ${C.border}`,
               borderRadius: '1440px', padding: '5px 14px', marginBottom: '32px',
@@ -136,7 +149,7 @@ export default function HomePage() {
               100% Gratis untuk Semua Surat
             </div>
 
-            <h1 className="hero-title" style={{
+            <h1 className="hero-title animate-fade-up delay-100" style={{
               ...serif,
               fontSize: '72px',
               lineHeight: 1.0,
@@ -149,7 +162,7 @@ export default function HomePage() {
               2 Menit
             </h1>
 
-            <p className="hero-subtitle" style={{
+            <p className="hero-subtitle animate-fade-up delay-200" style={{
               fontSize: '16px', color: C.slate,
               lineHeight: 1.6, letterSpacing: '0.48px',
               marginBottom: '40px', maxWidth: '440px',
@@ -157,7 +170,7 @@ export default function HomePage() {
               Isi form singkat, tambahkan tanda tangan digital, lalu download PDF format A4 siap cetak. Tanpa perlu software tambahan.
             </p>
 
-            <div className="hero-btn-group" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div className="hero-btn-group animate-fade-up delay-300" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
               <a
                 href="#templates"
                 id="hero-cta-lihat-template"
@@ -194,7 +207,7 @@ export default function HomePage() {
           </div>
 
           {/* Right: Floating Document Mockup */}
-          <div className="hero-mockup-wrapper" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '440px' }}>
+          <div className="hero-mockup-wrapper animate-fade-in delay-400" style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '440px' }}>
             {/* Faint shadow glow */}
             <div style={{
               position: 'absolute', bottom: '5%', left: '50%', transform: 'translateX(-50%)',
@@ -259,7 +272,8 @@ export default function HomePage() {
         </div>
 
         {/* Stats row */}
-        <div className="hero-stats-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', marginTop: '80px', borderTop: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}` }}>
+        <ScrollReveal animation="fade-up" delay={200}>
+          <div className="hero-stats-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', marginTop: '80px', borderTop: `1px solid ${C.border}`, borderLeft: `1px solid ${C.border}` }}>
           {[
             { value: '56+',    label: 'Template Tersedia', icon: 'description' },
             { value: 'Instan', label: 'PDF Download',       icon: 'download' },
@@ -281,59 +295,63 @@ export default function HomePage() {
               <div style={{ fontSize: '13px', color: C.slate, letterSpacing: '0.42px' }}>{stat.label}</div>
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* ══════════ CARA KERJA ══════════ */}
       <section id="cara-kerja" style={{ background: C.dustFaint, borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
-          <div style={{ marginBottom: '48px' }}>
-            <h2 style={{ ...serif, fontSize: '48px', lineHeight: 1.1, letterSpacing: '-0.48px', color: C.charcoal, marginBottom: '16px' }}>
-              Tiga langkah mudah
-            </h2>
-            <p style={{ fontSize: '16px', color: C.slate, letterSpacing: '0.48px', lineHeight: 1.6, maxWidth: '480px' }}>
-              Dari nol hingga PDF siap cetak dalam hitungan menit.
-            </p>
-          </div>
+        <ScrollReveal animation="fade-up">
+          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '100px 24px' }}>
+            <div style={{ marginBottom: '48px' }}>
+              <h2 style={{ ...serif, fontSize: '48px', lineHeight: 1.1, letterSpacing: '-0.48px', color: C.charcoal, marginBottom: '16px' }}>
+                Tiga langkah mudah
+              </h2>
+              <p style={{ fontSize: '16px', color: C.slate, letterSpacing: '0.48px', lineHeight: 1.6, maxWidth: '480px' }}>
+                Dari nol hingga PDF siap cetak dalam hitungan menit.
+              </p>
+            </div>
 
-          <div className="cara-kerja-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0' }}>
-            {[
-              { step: '01', title: 'Pilih Template', desc: 'Cari dan pilih jenis surat dari koleksi 56+ template kategori pekerjaan, jual beli, pemerintahan, dan sekolah.', icon: 'touch_app' },
-              { step: '02', title: 'Isi Formulir', desc: 'Lengkapi form data dengan informasi yang diperlukan. Tambahkan tanda tangan digital langsung dari layar.', icon: 'edit' },
-              { step: '03', title: 'Download PDF', desc: 'Unduh surat dalam format PDF ukuran A4, bersih tanpa watermark, siap dicetak atau dikirim.', icon: 'print' },
-            ].map((item, idx) => (
-              <div key={idx} style={{
-                padding: '40px 32px',
-                borderRight: idx < 2 ? `1px solid ${C.border}` : 'none',
-                transition: 'background 0.15s',
-              }}
-                onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.background = C.white}
-                onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.background = 'transparent'}
-              >
-                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '24px' }}>
-                  <span style={{ ...serif, fontSize: '48px', fontWeight: 300, lineHeight: 1, color: C.charcoal, letterSpacing: '-0.48px', opacity: 0.15 }}>{item.step}</span>
-                  <span className="material-symbols-outlined" style={{ fontSize: '22px', color: C.charcoal }}>{item.icon}</span>
+            <div className="cara-kerja-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0' }}>
+              {[
+                { step: '01', title: 'Pilih Template', desc: 'Cari dan pilih jenis surat dari koleksi 56+ template kategori pekerjaan, jual beli, pemerintahan, dan sekolah.', icon: 'touch_app' },
+                { step: '02', title: 'Isi Formulir', desc: 'Lengkapi form data dengan informasi yang diperlukan. Tambahkan tanda tangan digital langsung dari layar.', icon: 'edit' },
+                { step: '03', title: 'Download PDF', desc: 'Unduh surat dalam format PDF ukuran A4, bersih tanpa watermark, siap dicetak atau dikirim.', icon: 'print' },
+              ].map((item, idx) => (
+                <div key={idx} style={{
+                  padding: '40px 32px',
+                  borderRight: idx < 2 ? `1px solid ${C.border}` : 'none',
+                  transition: 'background 0.15s',
+                }}
+                  onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.background = C.white}
+                  onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.background = 'transparent'}
+                >
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '24px' }}>
+                    <span style={{ ...serif, fontSize: '48px', fontWeight: 300, lineHeight: 1, color: C.charcoal, letterSpacing: '-0.48px', opacity: 0.15 }}>{item.step}</span>
+                    <span className="material-symbols-outlined" style={{ fontSize: '22px', color: C.charcoal }}>{item.icon}</span>
+                  </div>
+                  <h3 style={{ fontSize: '20px', fontWeight: 600, color: C.charcoal, marginBottom: '10px', letterSpacing: '0.6px' }}>{item.title}</h3>
+                  <p style={{ fontSize: '14px', color: C.slate, lineHeight: 1.6, letterSpacing: '0.42px' }}>{item.desc}</p>
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: 600, color: C.charcoal, marginBottom: '10px', letterSpacing: '0.6px' }}>{item.title}</h3>
-                <p style={{ fontSize: '14px', color: C.slate, lineHeight: 1.6, letterSpacing: '0.42px' }}>{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ══════════ TEMPLATE SECTION ══════════ */}
       <section id="templates" style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
-
-        {/* Section heading */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '40px' }}>
-          <h2 style={{ ...serif, fontSize: '48px', fontWeight: 300, color: C.charcoal, lineHeight: 1.1, letterSpacing: '-0.48px' }}>
-            Template surat
-          </h2>
-          <p style={{ fontSize: '16px', color: C.slate, letterSpacing: '0.48px' }}>
-            Pilih template yang sesuai kebutuhan Anda
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          {/* Section heading */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '40px' }}>
+            <h2 style={{ ...serif, fontSize: '48px', fontWeight: 300, color: C.charcoal, lineHeight: 1.1, letterSpacing: '-0.48px' }}>
+              Template surat
+            </h2>
+            <p style={{ fontSize: '16px', color: C.slate, letterSpacing: '0.48px' }}>
+              Pilih template yang sesuai kebutuhan Anda
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Search + Category row */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginBottom: '32px' }}>
@@ -518,5 +536,13 @@ export default function HomePage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense>
+      <HomePageInner />
+    </Suspense>
   );
 }

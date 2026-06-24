@@ -45,3 +45,4 @@ export default function SuratKuasaBansosPreview({ formData }: Props) {
   );
 }
 
+

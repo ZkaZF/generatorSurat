@@ -39,3 +39,4 @@ export default function EditorTabs({ activeTab, onChange }: EditorTabsProps) {
     </div>
   );
 }
+

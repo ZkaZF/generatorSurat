@@ -78,14 +78,17 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ background: C.charcoal, width: '100%', boxSizing: 'border-box' }}>
-
+    <footer style={{ background: 'red', border: '10px solid yellow' }}>
+      <h1 style={{ color: 'white', fontSize: '48px', textAlign: 'center', padding: '20px' }}>
+        TESTING FOOTER MUNCUL ATAU TIDAK
+      </h1>
       {/* ── Main content ── */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '64px 24px 0', boxSizing: 'border-box' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '64px 24px 0' }}>
+
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: '40px',
+          gridTemplateColumns: '1.6fr 1fr 1fr 1fr',
+          gap: '48px',
           paddingBottom: '56px',
           borderBottom: '1px solid rgba(255,255,255,0.08)',
         }}>
@@ -146,8 +149,8 @@ export default function Footer() {
               { label: 'Cara Kerja', href: '/#cara-kerja' },
               { label: 'Pusat Bantuan', href: '/bantuan' },
               { label: 'FAQ', href: '/bantuan#faq-section' },
-              { label: 'Tanda Tangan Digital', href: '/bantuan?topik=tanda-tangan#faq-section' },
-              { label: 'Download PDF', href: '/bantuan?topik=hasil-pdf#faq-section' },
+              { label: 'Tanda Tangan Digital', href: '/bantuan#faq-section' },
+              { label: 'Download PDF', href: '/bantuan#faq-section' },
             ]}
           />
 
@@ -158,8 +161,8 @@ export default function Footer() {
               { label: 'Tentang Kami', href: '/tentang' },
               { label: 'Kebijakan Privasi', href: '/privasi' },
               { label: 'Syarat & Ketentuan', href: '/syarat' },
-              { label: 'Request Template', href: 'mailto:suratindong18@gmail.com?subject=Request%20Template', external: true },
-              { label: 'Kontak', href: 'mailto:suratindong18@gmail.com', external: true },
+              { label: 'Request Template', href: 'mailto:halo@suratin.id?subject=Request%20Template', external: true },
+              { label: 'Kontak', href: 'mailto:halo@suratin.id', external: true },
             ]}
           />
         </div>
@@ -180,7 +183,7 @@ export default function Footer() {
             {[
               { label: 'Privasi', href: '/privasi' },
               { label: 'Syarat', href: '/syarat' },
-              { label: 'Kontak', href: 'mailto:suratindong18@gmail.com' },
+              { label: 'Kontak', href: 'mailto:halo@suratin.id' },
             ].map((link) => (
               <a
                 key={link.label}
@@ -202,4 +205,3 @@ export default function Footer() {
     </footer>
   );
 }
-

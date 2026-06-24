@@ -59,3 +59,4 @@ export default function Header({ variant = 'home' }: HeaderProps) {
     </header>
   );
 }
+

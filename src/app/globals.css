@@ -166,6 +166,22 @@
   padding-bottom: env(safe-area-inset-bottom, 16px);
 }
 
+/* ── Content TOC Grid Layout ───────────────────────────────────────────── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+.toc-sidebar {
+  border-right: 1px solid rgba(26,26,23,0.10);
+  padding: 48px 0;
+  position: sticky;
+  top: 60px;
+  align-self: start;
+}
+.toc-main {
+  padding: 48px 48px 80px;
+}
+
 /* ── Card variants ─────────────────────────────────────────────────────── */
 
 /* Flat 0px architectural card (Getburnt default) */
@@ -388,6 +404,48 @@
     font-size: 13px !important;
     max-width: 140px !important;
   }
+
+  .toc-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Sidebar jadi pill tab strip horizontal di HP */
+  .toc-sidebar {
+    position: static !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(26,26,23,0.10) !important;
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    overflow: visible !important;
+  }
+  /* Sembunyikan label "Daftar Isi" / "Kategori" di HP */
+  .toc-sidebar > div:first-child {
+    display: none !important;
+  }
+  /* Setiap link/button di sidebar jadi pill */
+  .toc-sidebar a,
+  .toc-sidebar button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    border: 1px solid rgba(26,26,23,0.12) !important;
+    border-left: 1px solid rgba(26,26,23,0.12) !important;
+    border-radius: 1440px !important;
+    padding: 7px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    background: #ffffff !important;
+  }
+  /* Pill aktif (untuk bantuan page) */
+  .toc-sidebar button[style*="2px solid #1a1a17"] {
+    background: #1a1a17 !important;
+    color: #ffffff !important;
+  }
+  .toc-main {
+    padding: 28px 20px 64px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -403,4 +461,45 @@
   .hero-title {
     font-size: 34px !important;
   }
+}
+
+/* ── Micro-Animations ──────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes floatSoft {
+  0%   { transform: translateY(0px) rotate(-3deg); }
+  50%  { transform: translateY(-8px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(-3deg); }
+}
+
+/* Base utility classes */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Apply floating animation to the hero card */
+.hero-doc-card {
+  animation: floatSoft 6s ease-in-out infinite !important;
 }

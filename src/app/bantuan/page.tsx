@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Footer from '@/components/layout/Footer';
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const C = {
@@ -204,9 +206,19 @@ function AccordionItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpe
 }
 
 // ── Main Page ─────────────────────────────────────────────────────────────────
-export default function BantuanPage() {
+function BantuanPageInner() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
   const [activeCat, setActiveCat] = useState('Umum');
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const topik = searchParams.get('topik');
+    if (topik === 'tanda-tangan') {
+      setActiveCat('Membuat Surat');
+    } else if (topik === 'hasil-pdf') {
+      setActiveCat('Hasil PDF');
+    }
+  }, [searchParams]);
 
   const toggleItem = (key: string) => {
     setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
@@ -262,7 +274,7 @@ export default function BantuanPage() {
             </p>
 
             <a
-              href="mailto:halo@suratin.id"
+              href="mailto:suratindong18@gmail.com"
               id="bantuan-kontak-email"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -332,80 +344,79 @@ export default function BantuanPage() {
 
       {/* ══════════ FAQ SECTION ══════════ */}
       <section id="faq-section" style={{ borderTop: `1px solid ${C.border}`, background: C.dustFaint }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr' }}>
+        <div className="toc-grid" style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
-            {/* Sidebar kategori */}
-            <div style={{ borderRight: `1px solid ${C.border}`, padding: '48px 0' }}>
-              <div style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '0 24px', marginBottom: '16px' }}>
-                Kategori
-              </div>
-              {FAQ_ITEMS.map((cat) => {
-                const active = activeCat === cat.category;
-                return (
-                  <button
-                    key={cat.category}
-                    onClick={() => setActiveCat(cat.category)}
-                    style={{
-                      width: '100%', display: 'flex', alignItems: 'center', gap: '12px',
-                      padding: '12px 24px', background: 'none', border: 'none',
-                      borderLeft: active ? `2px solid ${C.charcoal}` : '2px solid transparent',
-                      cursor: 'pointer', textAlign: 'left',
-                      transition: 'all .15s',
-                    }}
-                  >
-                    <span className="material-symbols-outlined" style={{ fontSize: '16px', color: active ? C.charcoal : C.slate }}>{cat.icon}</span>
-                    <span style={{ fontSize: '14px', fontWeight: active ? 600 : 400, color: active ? C.charcoal : C.slate, letterSpacing: '0.42px' }}>
-                      {cat.category}
-                    </span>
-                    <span style={{
-                      marginLeft: 'auto', fontSize: '11px', fontWeight: 600,
-                      padding: '1px 7px', borderRadius: '1440px',
-                      background: active ? C.charcoal : C.dustFaint,
-                      color: active ? C.white : C.slate,
-                    }}>
-                      {cat.questions.length}
-                    </span>
-                  </button>
-                );
-              })}
+          {/* ── Sidebar kategori ── */}
+          <div className="toc-sidebar">
+            <div style={{ fontSize: '11px', fontWeight: 600, color: C.slate, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '0 24px', marginBottom: '16px' }}>
+              Kategori
             </div>
-
-            {/* FAQ list */}
-            <div style={{ padding: '48px 48px' }}>
-              {activeCategory && (
-                <>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
-                    <div style={{
-                      width: '40px', height: '40px', background: C.charcoal,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    }}>
-                      <span className="material-symbols-outlined icon-fill" style={{ fontSize: '18px', color: C.white }}>{activeCategory.icon}</span>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '12px', fontWeight: 600, color: C.slate, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Kategori</div>
-                      <h2 style={{ ...serif, fontSize: '28px', color: C.charcoal, lineHeight: 1, letterSpacing: '-0.28px' }}>{activeCategory.category}</h2>
-                    </div>
-                  </div>
-
-                  <div>
-                    {activeCategory.questions.map((item, idx) => {
-                      const key = `${activeCat}-${idx}`;
-                      return (
-                        <AccordionItem
-                          key={key}
-                          q={item.q}
-                          a={item.a}
-                          isOpen={!!openItems[key]}
-                          onToggle={() => toggleItem(key)}
-                        />
-                      );
-                    })}
-                  </div>
-                </>
-              )}
-            </div>
+            {FAQ_ITEMS.map((cat) => {
+              const active = activeCat === cat.category;
+              return (
+                <button
+                  key={cat.category}
+                  onClick={() => setActiveCat(cat.category)}
+                  style={{
+                    width: '100%', display: 'flex', alignItems: 'center', gap: '12px',
+                    padding: '12px 24px', background: 'none', border: 'none',
+                    borderLeft: active ? `2px solid ${C.charcoal}` : '2px solid transparent',
+                    cursor: 'pointer', textAlign: 'left',
+                    transition: 'all .15s',
+                  }}
+                >
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px', color: active ? C.charcoal : C.slate }}>{cat.icon}</span>
+                  <span style={{ fontSize: '14px', fontWeight: active ? 600 : 400, color: active ? C.charcoal : C.slate, letterSpacing: '0.42px' }}>
+                    {cat.category}
+                  </span>
+                  <span style={{
+                    marginLeft: 'auto', fontSize: '11px', fontWeight: 600,
+                    padding: '1px 7px', borderRadius: '1440px',
+                    background: active ? C.charcoal : C.dustFaint,
+                    color: active ? C.white : C.slate,
+                  }}>
+                    {cat.questions.length}
+                  </span>
+                </button>
+              );
+            })}
           </div>
+
+          {/* ── FAQ list ── */}
+          <div className="toc-main" style={{ minHeight: '600px' }}>
+            {activeCategory && (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
+                  <div style={{
+                    width: '40px', height: '40px', background: C.charcoal,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <span className="material-symbols-outlined icon-fill" style={{ fontSize: '18px', color: C.white }}>{activeCategory.icon}</span>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: C.slate, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>Kategori</div>
+                    <h2 style={{ ...serif, fontSize: '28px', color: C.charcoal, lineHeight: 1, letterSpacing: '-0.28px' }}>{activeCategory.category}</h2>
+                  </div>
+                </div>
+
+                <div>
+                  {activeCategory.questions.map((item, idx) => {
+                    const key = `${activeCat}-${idx}`;
+                    return (
+                      <AccordionItem
+                        key={key}
+                        q={item.q}
+                        a={item.a}
+                        isOpen={!!openItems[key]}
+                        onToggle={() => toggleItem(key)}
+                      />
+                    );
+                  })}
+                </div>
+              </>
+            )}
+          </div>
+
         </div>
       </section>
 
@@ -416,10 +427,10 @@ export default function BantuanPage() {
             {
               icon: 'mail',
               title: 'Email',
-              value: 'halo@suratin.id',
+              value: 'suratindong18@gmail.com',
               desc: 'Kirim pertanyaan atau saran via email. Kami merespons dalam 1–2 hari kerja.',
               cta: 'Kirim Email',
-              href: 'mailto:halo@suratin.id',
+              href: 'mailto:suratindong18@gmail.com',
               id: 'bantuan-kontak-email-card',
             },
             {
@@ -428,7 +439,7 @@ export default function BantuanPage() {
               value: 'Template baru',
               desc: 'Butuh jenis surat yang belum ada? Request template baru dan kami akan menambahkannya.',
               cta: 'Request Template',
-              href: 'mailto:halo@suratin.id?subject=Request%20Template&body=Nama%20surat%20yang%20dibutuhkan%3A%0AKategori%3A%0AKeterangan%20tambahan%3A',
+              href: 'mailto:suratindong18@gmail.com?subject=Request%20Template&body=Nama%20surat%20yang%20dibutuhkan%3A%0AKategori%3A%0AKeterangan%20tambahan%3A',
               id: 'bantuan-request-template',
             },
             {
@@ -437,7 +448,7 @@ export default function BantuanPage() {
               value: 'Ada masalah?',
               desc: 'Temukan error atau tampilan yang aneh? Laporkan kepada kami agar segera diperbaiki.',
               cta: 'Laporkan Masalah',
-              href: 'mailto:halo@suratin.id?subject=Bug%20Report',
+              href: 'mailto:suratindong18@gmail.com?subject=Bug%20Report',
               id: 'bantuan-laporkan-bug',
             },
           ].map((card) => (
@@ -482,35 +493,15 @@ export default function BantuanPage() {
         </div>
       </section>
 
-      {/* ══════════ FOOTER ══════════ */}
-      <footer style={{ background: C.charcoal, borderTop: `1px solid rgba(255,255,255,0.06)` }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '48px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '28px', height: '28px', background: C.white, borderRadius: '3px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span className="material-symbols-outlined icon-fill" style={{ fontSize: '14px', color: C.charcoal }}>description</span>
-            </div>
-            <span style={{ ...serif, fontSize: '16px', color: C.white, letterSpacing: '-0.26px' }}>Suratin</span>
-          </div>
-          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.40)', letterSpacing: '0.42px' }}>© 2025 Suratin. Generator surat resmi otomatis.</p>
-          <div style={{ display: 'flex', gap: '24px' }}>
-            {[
-              { label: 'Tentang', href: '/tentang' },
-              { label: 'Bantuan', href: '/bantuan' },
-              { label: 'Beranda', href: '/' },
-            ].map((link) => (
-              <Link key={link.label} href={link.href} style={{
-                fontSize: '13px', color: 'rgba(255,255,255,0.40)', textDecoration: 'none',
-                letterSpacing: '0.42px', transition: 'color .15s',
-              }}
-                onMouseEnter={e => (e.currentTarget.style.color = C.white)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.40)')}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
+  );
+}
+
+export default function BantuanPage() {
+  return (
+    <Suspense>
+      <BantuanPageInner />
+    </Suspense>
   );
 }

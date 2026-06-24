@@ -151,3 +151,4 @@ export const styles = StyleSheet.create({
     textAlign: 'justify',
   },
 });
+

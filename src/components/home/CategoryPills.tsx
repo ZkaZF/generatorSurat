@@ -41,3 +41,4 @@ export default function CategoryPills({ activeCategory, onChange }: CategoryPill
     </section>
   );
 }
+

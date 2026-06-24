@@ -14,3 +14,4 @@ export const metadata: Metadata = {
 export default function BantuanLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
+

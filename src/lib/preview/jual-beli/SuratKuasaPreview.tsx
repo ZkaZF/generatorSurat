@@ -129,3 +129,4 @@ export default function SuratKuasaPreview({ formData }: Props) {
     </div>
   );
 }
+

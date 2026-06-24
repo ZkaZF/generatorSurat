@@ -113,3 +113,4 @@ export default function SuratPerjanjianJualBeliPreview({ formData }: Props) {
     </div>
   );
 }
+

@@ -250,3 +250,4 @@ export default function SignatureCanvas({ id, label, value, onChange }: Signatur
     </div>
   );
 }
+
