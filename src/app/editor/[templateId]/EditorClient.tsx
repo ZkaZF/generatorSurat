@@ -61,15 +61,45 @@ export default function EditorClient({ template }: EditorClientProps) {
         return;
       }
       const blob = await response.blob();
-      const url  = URL.createObjectURL(blob);
-      const a    = document.createElement('a');
-      a.href     = url;
-      a.download = `${template.name.replace(/\s+/g, '_')}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch {
+      const filename = `${template.name.replace(/\s+/g, '_')}.pdf`;
+
+      // 1. Cek apakah browser mendukung Web Share API untuk File (solusi terbaik untuk HP & In-App Browser)
+      let shareSuccess = false;
+      if (navigator.canShare) {
+        const file = new File([blob], filename, { type: 'application/pdf' });
+        if (navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              files: [file],
+              title: template.name,
+              text: 'Berikut adalah dokumen PDF yang Anda buat dari Suratin Dong.',
+            });
+            shareSuccess = true;
+          } catch (err) {
+            console.log('Share dibatalkan atau gagal', err);
+            // Lanjut ke fallback download biasa jika gagal/batal
+          }
+        }
+      }
+
+      if (!shareSuccess) {
+        // 2. Fallback: Download via tag <a> biasa
+        // Beri peringatan jika user memakai Instagram Browser dan gagal menggunakan Web Share
+        if (navigator.userAgent.includes('Instagram')) {
+          alert("Perhatian: Anda sedang membuka web ini dari aplikasi Instagram. Browser bawaan Instagram seringkali memblokir fitur unduhan PDF.\n\nJika PDF gagal terunduh, silakan tekan ikon titik 3 (•••) di pojok kanan atas layar dan pilih 'Buka di Browser Eksternal' (Chrome/Safari).");
+        }
+
+        const url  = URL.createObjectURL(blob);
+        const a    = document.createElement('a');
+        a.href     = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+    } catch (err) {
       alert('Terjadi kesalahan. Silakan coba lagi.');
     } finally {
       setIsDownloading(false);
