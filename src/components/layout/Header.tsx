@@ -21,6 +21,7 @@ export default function Header({ variant = 'home' }: HeaderProps) {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           width: '40px', height: '40px', borderRadius: '50%',
           color: '#5A6A7A', textDecoration: 'none', transition: 'background .15s',
+          flexShrink: 0,
         }}
         aria-label={variant === 'editor' ? 'Kembali ke beranda' : 'Beranda'}
         onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.background = '#F5EFE3')}
@@ -33,29 +34,45 @@ export default function Header({ variant = 'home' }: HeaderProps) {
         )}
       </Link>
 
-      {/* Center Logo */}
-      <Link href="/" style={{
-        fontFamily: 'var(--font-serif), Georgia, serif',
-        fontSize: '18px', fontWeight: 400, color: '#1B2E4A',
-        textDecoration: 'none', letterSpacing: '-0.2px',
-      }}>
-        Suratin Dong
-      </Link>
+      {/* Center: Logo + Nav links */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <Link href="/" style={{
+          fontFamily: 'var(--font-serif), Georgia, serif',
+          fontSize: '18px', fontWeight: 400, color: '#1B2E4A',
+          textDecoration: 'none', letterSpacing: '-0.2px',
+          flexShrink: 0,
+        }}>
+          Suratin Dong
+        </Link>
 
-      {/* Right icon */}
-      <button
-        style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          width: '40px', height: '40px', borderRadius: '50%',
-          border: 'none', background: 'transparent', cursor: 'pointer',
-          color: '#5A6A7A', transition: 'background .15s',
-        }}
-        aria-label="Profil akun"
-        onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.background = '#F5EFE3')}
-        onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.background = 'transparent')}
-      >
-        <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>account_circle</span>
-      </button>
+        {variant === 'home' && (
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Link href="/tentang" style={{
+              fontSize: '13px', fontWeight: 500, color: '#5A6A7A',
+              textDecoration: 'none', padding: '6px 10px', borderRadius: '8px',
+              transition: 'background .15s, color .15s',
+            }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#F5EFE3'; (e.currentTarget as HTMLAnchorElement).style.color = '#1B2E4A'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#5A6A7A'; }}
+            >
+              Tentang
+            </Link>
+            <Link href="/bantuan" style={{
+              fontSize: '13px', fontWeight: 500, color: '#5A6A7A',
+              textDecoration: 'none', padding: '6px 10px', borderRadius: '8px',
+              transition: 'background .15s, color .15s',
+            }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#F5EFE3'; (e.currentTarget as HTMLAnchorElement).style.color = '#1B2E4A'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#5A6A7A'; }}
+            >
+              Bantuan
+            </Link>
+          </nav>
+        )}
+      </div>
+
+      {/* Right spacer to keep layout balanced */}
+      <div style={{ width: '40px', flexShrink: 0 }} />
     </header>
   );
 }

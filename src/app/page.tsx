@@ -40,6 +40,7 @@ const serif: React.CSSProperties = {
 };
 
 function HomePageInner() {
+  const [menuOpen, setMenuOpen]             = useState(false);
   const [searchQuery, setSearchQuery]       = useState('');
   const [activeCategory, setActiveCategory] = useState<TemplateCategory | 'semua'>('semua');
   const [visibleCount, setVisibleCount]     = useState(ITEMS_PER_LOAD);
@@ -92,8 +93,8 @@ function HomePageInner() {
             </span>
           </Link>
 
-          {/* Nav links + CTA */}
-          <div className="hidden md:flex" style={{ alignItems: 'center', gap: '40px' }}>
+          {/* Desktop Nav links + CTA (hidden on mobile) */}
+          <div className="hidden md:flex" style={{ alignItems: 'center', gap: '24px' }}>
             <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
               {[
                 { label: 'Tentang', href: '/tentang' },
@@ -129,7 +130,72 @@ function HomePageInner() {
               Buat Surat
             </Link>
           </div>
+
+          {/* Mobile Hamburger Button (hidden on desktop) */}
+          <button
+            className="flex md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Buka menu navigasi"
+            style={{
+              alignItems: 'center', justifyContent: 'center',
+              width: '40px', height: '40px', borderRadius: '8px',
+              border: 'none', background: 'transparent', cursor: 'pointer',
+              color: C.charcoal, transition: 'background .15s',
+            }}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>
+              {menuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div style={{
+            background: 'rgba(255,255,255,0.98)', backdropFilter: 'blur(12px)',
+            borderTop: `1px solid ${C.border}`,
+            padding: '16px 24px 20px',
+            display: 'flex', flexDirection: 'column', gap: '4px',
+          }}>
+            {[
+              { label: 'Tentang', href: '/tentang', icon: 'info' },
+              { label: 'Bantuan', href: '/bantuan', icon: 'help' },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  padding: '12px 16px', borderRadius: '10px',
+                  fontSize: '16px', fontWeight: 500, color: C.charcoal,
+                  textDecoration: 'none', transition: 'background .15s',
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = C.dust)}
+                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '20px', color: C.slate }}>{item.icon}</span>
+                {item.label}
+              </Link>
+            ))}
+            <div style={{ marginTop: '8px', paddingTop: '12px', borderTop: `1px solid ${C.border}` }}>
+              <Link
+                href="#templates"
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                  background: C.charcoal, color: C.white,
+                  fontSize: '15px', fontWeight: 500,
+                  padding: '12px 24px', borderRadius: '1440px',
+                  textDecoration: 'none',
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>edit</span>
+                Buat Surat Sekarang
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* ══════════ HERO ══════════ */}
