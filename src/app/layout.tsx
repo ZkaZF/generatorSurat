@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     type: 'website',
   },
   authors: [{ name: 'Suratin Dong' }],
+  verification: {
+    google: 'xS-nNzGjdwO7rIEJyGICx21INVIr4bZL3QKDYXA04Fo',
+  },
 };
 
 export default function RootLayout({
