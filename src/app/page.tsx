@@ -85,8 +85,8 @@ function HomePageInner() {
 
           {/* Brand logo */}
           <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '32px', height: '32px', background: C.charcoal, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-              <span className="material-symbols-outlined icon-fill" style={{ fontSize: '16px', color: C.white }}>description</span>
+            <div style={{ width: '32px', height: '32px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src="/logo.png" alt="Suratin Dong Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(3.5)', mixBlendMode: 'multiply' }} />
             </div>
             <span style={{ ...serif, fontSize: '20px', color: C.charcoal, letterSpacing: '-0.26px' }}>
               Suratin Dong

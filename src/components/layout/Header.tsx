@@ -30,7 +30,9 @@ export default function Header({ variant = 'home' }: HeaderProps) {
         {variant === 'editor' ? (
           <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>close</span>
         ) : (
-          <span className="material-symbols-outlined icon-fill" style={{ fontSize: '22px', color: '#C8A45C' }}>description</span>
+          <div style={{ width: '24px', height: '24px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', transform: 'scale(3.5)', mixBlendMode: 'multiply' }} />
+          </div>
         )}
       </Link>
 
