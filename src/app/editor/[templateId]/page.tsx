@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const template = getTemplate(templateId);
     return {
-      title: `${template.name} — Suratin`,
-      description: template.description,
+      title: `Buat ${template.name} Online & Otomatis — Suratin Dong`,
+      description: `Bikin ${template.name} gratis dalam 2 menit. Tinggal isi form, download PDF siap cetak. ${template.description}`,
     };
   } catch {
     return { title: 'Template tidak ditemukan — Suratin' };
