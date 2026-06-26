@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     description: 'Generator surat resmi PDF instan untuk kebutuhan pekerjaan, bisnis, dan pemerintahan.',
     type: 'website',
   },
+  keywords: ['Suratindong', 'Suratin Dong', 'Generator Surat Online', 'Buat Surat Resmi', 'Surat Otomatis', 'Surat Kuasa', 'Surat Izin', 'Surat Pernyataan', 'Website pembuat surat', 'Surat resmi', 'Surat online', 'Surat PDF', 'Surat Cepat', 'Surat Otomatis', 'Template Surat', 'Draft Surat', 'Bikin Surat Otomatis', 'Surat Online Gratis', 'Template Surat Resmi'],
   authors: [{ name: 'Suratin Dong' }],
   verification: {
     google: 'xS-nNzGjdwO7rIEJyGICx21INVIr4bZL3QKDYXA04Fo',
